@@ -76,7 +76,7 @@
 * {
   box-sizing: border-box;
   padding: 10;
-  margin: 20;
+  margin: 10;
 }
 
 html,
@@ -104,4 +104,61 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #91d085;
+}
+
+.topnav a {
+  float: left;
+  color: #323232;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #91d085;
+  color: rgb(59, 172, 41);
+}
+
+/* Create a right-aligned (split) link inside the navigation bar */
+.topnav a.split {
+  float: right;
+  background-color: #04AA6D;
+  color: white;
+}
+.topnav a.split:hover {
+  background-color: #04AA6D;
+  color: rgb(136, 159, 132);
+}
+
+
+.container {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+/* Rotate first bar */
+.change .bar1 {
+  transform: translate(0, 11px) rotate(-45deg);
+}
+
+/* Fade out the second bar */
+.change .bar2 {opacity: 0;}
+
+/* Rotate last bar */
+.change .bar3 {
+  transform: translate(0, -11px) rotate(45deg);
 }

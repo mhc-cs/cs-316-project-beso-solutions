@@ -1,15 +1,6 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 
-function MenuButton({}) {
-  return (
-    <button>
-      <img src=
-"https://www.google.com/imgres?imgurl=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fb%2Fb2%2FHamburger_icon.svg%2F1024px-Hamburger_icon.svg.png&tbnid=vH-BsLYODxqF2M&vet=12ahUKEwiM4pu308-EAxWLGGIAHS4nBrUQMygAegQIARBN..i&imgrefurl=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FFile%3AHamburger_icon.svg&docid=zP5Xch5ecAH00M&w=1024&h=1024&q=menu%20symbol&hl=en&ved=2ahUKEwiM4pu308-EAxWLGGIAHS4nBrUQMygAegQIARBN"/>
-    </button>
-  );
-}
-
 function CartButton({}) {
   return (
     <button>
@@ -19,63 +10,64 @@ function CartButton({}) {
   );
 }
 
+function myFunction(x) {
+  x.classList.toggle("change");
+}
+
 export default function Page() {
+
   return (
     <div>
-      <h1>Welcome to Our Webpage</h1>
+      <div className="topnav">
+        <a className="container">
+          <div className="bar1"></div>
+          <div className="bar2"></div>
+          <div className="bar3"></div>
+        </a>
 
-      <nav class="navbar background">
-                <ul class="nav-list">
-                    <ul class="navbar-nav">
-                        <a> <MenuButton/> </a>
-                        <a class="logo">
-                        <img src=
+        <a className="logo">
+        <img src=
 "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.https://www.https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.housebeautiful.com%2Flifestyle%2Fgardening%2Fg44004499%2Fprettiest-flowers-in-the-world%2F&psig=AOvVaw2G5He_zTkZHP0bcpqQ3Z51&ust=1709264681804000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCICN4orVz4QDFQAAAAAdAAAAABAs.com/url?sa=i&url=https%3A%2F%2Fwww.elledecor.com%2Flife-culture%2Ffun-at-home%2Fg42575811%2Fspring-flowers%2F&psig=AOvVaw2G5He_zTkZHP0bcpqQ3Z51&ust=1709264681804000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCICN4orVz4QDFQAAAAAdAAAAABAO.com%2Fbest-sellers%2Fcat6970021&psig=AOvVaw2G5He_zTkZHP0bcpqQ3Z51&ust=1709264681804000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCICN4orVz4QDFQAAAAAdAAAAABAJ"/>
-                        </a>
-                        <a class="nav-link" href="#AboutUs">About Us   </a>
-                        <a class="nav-link" href="#Products">    Products    </a>
-                        <a class="nav-link" href="#Shipping">    Shipping    </a>
-                        <a class="nav-link" href="#Sign In">    Sign In    </a>
-                        <a> <CartButton/> </a>
-                    </ul>
-                </ul>
+        </a>
+        <a href="#AboutUs">About Us</a>
+        <a href="#Products">Products</a>
+        <a href="#Shipping">Shipping</a>
+
+        <a href="#Cart" className="split"><CartButton/></a>
+        <a href="#Sign In" className="split">Sign In</a>
+
+        <div className="rightNav">
+          <input
+            type="text"
+            name="search"
+            id="search"
+          />
+          <button className="btn btn-sm">
+            Search
+          </button>
+        </div>
+      </div>
  
-                <div class="rightNav">
-                    <input
-                        type="text"
-                        name="search"
-                        id="search"
-                    />
-                    <button class="btn btn-sm">
-                        Search
-                    </button>
-                </div>
-            </nav>
- 
-            <section class="section">
-                <div class="box-main">
-                    <div class="firstHalf">
-                        <h1 class="text-big">
-                            Products New In
-                        </h1>
-                        <p class="text-small">
-                            We will add images here.
-                        </p>
-                    </div>
-                </div>
-            </section>
-            
-            <footer className="footer">
-                <ul>
-                <a className="text-footer">
-                    Copyright ©-All rights are reserved   |
-                </a>
-                <a>     Social Media Here</a>
-                </ul>
-            </footer>
+      <section>
+        <div className="box-main">
+          <div className="firstHalf">
+            <h1 className="text-big">
+                Products New In
+            </h1>
+            <p className="text-small">
+                We will add images here.
+            </p>
+          </div>
+        </div>
+      </section>
+      
+      <footer className="footer">
+        <ul>
+          <a className="text-footer">Copyright ©-All rights are reserved   |</a>
+          <a>     Social Media Here</a>
+        </ul>
+      </footer>
     </div>
+
   );
 }
-/*export default function Page() {
-  return
-}*/
