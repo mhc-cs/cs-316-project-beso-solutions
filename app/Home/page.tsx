@@ -3,6 +3,7 @@ import styles from "./page.module.css";
 import { url } from "inspector";
 
 import Link from 'next/link';
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
 
 function CartButton({}) {
   return (
@@ -17,9 +18,6 @@ export default function Page() {
   return (
   <div>
     <body>
-      <header className="header">
-        <img src="data:images/png-clipart-bird-logo-bird-animals-logo-thumbnail.jpeg"/>
-      </header>
 
       <div className="topnav">
         <a className="container">
@@ -28,12 +26,12 @@ export default function Page() {
           <div className="bar3"></div>
         </a>
 
-        <Link className="active" href="Home">
-          <img src="images/png-clipart-bird-logo-bird-animals-logo-thumbnail.jpeg"/>
-        </Link>
+        <Link className="active" href="Home">Home</Link>
         <Link href="AboutUs">About Us</Link>
         <Link href="Products">Products</Link>
         <Link href="Shipping">Shipping</Link>
+
+        <div className="logo-image"></div>
 
         <Link href="Cart" className="split">Cart</Link>
         <Link href="Sign In" className="split">Sign In</Link>
@@ -79,6 +77,8 @@ export default function Page() {
         <ul>
           <a className="text-footer">Copyright ©-All rights are reserved|</a>
           <a>Social Media Here</a>
+          <a href="#" className="fa fa-facebook"></a>
+          <a href="#" className="fa fa-instagram"></a>
         </ul>
       </footer>
 

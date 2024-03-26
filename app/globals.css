@@ -110,9 +110,9 @@ a {
 }
 
 .header {
-  background-color: #d6ed57;
+  background-color: #6d57ed;
   text-align: center;
-  padding: 10px;
+  padding: 20px;
 }
 .footer {
   background-color: #F1F1F1;
@@ -157,6 +157,18 @@ a {
 .topnav a.split:hover {
   background-color: #04AA6D;
   color: rgb(136, 159, 132);
+}
+
+.logo-image{
+  width: 300px;
+  height: 150px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("images/Missi.jpg");
 }
 
 /* Page content */
@@ -250,6 +262,8 @@ h1 {
   max-width: 300px;
   margin: auto;
   text-align: center;
+  border-radius: 12px;
+  background-color: #c7b7b7;
 }
 
 .price {
@@ -267,8 +281,55 @@ h1 {
   cursor: pointer;
   width: 100%;
   font-size: 18px;
+  border-radius: 12px;
 }
 
 .card button:hover {
   opacity: 0.7;
 }
+
+
+.fa {
+  padding: 20px;
+  font-size: 8px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+  opacity: 0.7;
+}
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+
+
+/* Pagination links */
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+}
+
+/* Style the active/current link */
+.pagination a.active {
+  background-color: dodgerblue;
+  color: white;
+}
+
+/* Add a grey background color on mouse-over */
+.pagination a:hover:not(.active) {background-color: #ddd;}
