@@ -4,16 +4,46 @@ import {ProductModel} from './db';
 
 // Gets all language data from the DB
 export async function GET(request: Request) {
-    var req:string[]=["shirt", "female"]; 
-    const res = await ProductModel.find(
-        {productType: req[0], sex:req[1], ageRange:req[2], color:req[3], stock:{$gt:0}}
-        );
-    
-    return NextResponse.json(res || {});
-}
+    //https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams/URLSearchParams
+    const url = new URL(request.url);
+    // const res = await fetch(request)
+    // const url = await res.url;
+    const searchParams = new URLSearchParams(url.search);
 
-//how do i specify the request? and params for that request
-//advice on handling sizes
+    if (searchParams.size == 1){
+        const results = ProductModel.find(
+            {category: searchParams.get('category')} //stock:{$gt:0}
+            );
+        
+        return NextResponse.json(results || {});
+    }else if (searchParams.size ==2){
+        
+        const results = ProductModel.find(
+            {category: searchParams.get('category'), colors: searchParams.get('colors')} //stock:{$gt:0}
+            );
+        
+        return NextResponse.json(results || {});
+    }else if (searchParams.size ==3){
+        
+        const colorMatches = ProductModel.find(
+            {category: searchParams.get('category'), colors: searchParams.get('colors')} //stock:{$gt:0}
+            );
+        
+        (await colorMatches).forEach(function(match){
+            const sizeMatches = ProductModel.find(
+                {}
+                );
+        })
+    }else
+
+    
+    // ProductModel.find({color:{"$elemMatch":{"$elemMatch":{"$in":['item00']}}} })
+
+    
+
+
+    
+}
 
 //images
 
