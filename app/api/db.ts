@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import { DevBundlerService } from 'next/dist/server/lib/dev-bundler-service';
 
 // Connect to the database
 mongoose.connect(process.env.MONGODB_URI!);
@@ -13,10 +14,13 @@ const ProductSchema = new mongoose.Schema({
         colors:[
             {
                 color: String, //dark wash/ medium wash
+                image: { 
+                    data: Buffer, 
+                    contentType: String 
+                 },
                 sizes:[{
                     size: String,
                     inseams:[{
-                        image: String,
                         inseam: Number,
                         price: Number,
                         stock: Number,
@@ -26,6 +30,7 @@ const ProductSchema = new mongoose.Schema({
         ],
         
 });
+
 
 // const Pants = new mongoose.Schema({
 //     category: "Pants",//shirt, t shirt, 
@@ -53,7 +58,18 @@ const ProductSchema = new mongoose.Schema({
 // Create a model.  This is what provides the nice API to
 // manipulate the database.
 
+const ImageSchema = new mongoose.Schema({ 
+    img: { 
+       data: Buffer, 
+       contentType: String 
+    }
+ }
+);
+
+export const ImageModel = mongoose.model ('images', ImageSchema);
+
 export const ProductModel = mongoose.model ('products', ProductSchema);
 
 // Make the model and schema available
 module.exports = ProductModel;
+module.exports = ImageModel;
