@@ -1,16 +1,23 @@
+"use client"; // This is a client component
+
 import Image from "next/image";
 import styles from "./page.module.css";
 import { url } from "inspector";
-
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import Link from 'next/link';
+import MenuSize from '../components/MenuSize';
+import MenuCategory from '../components/MenuCategory';
+import MenuInseam from '../components/MenuInseam';
+import MenuColor from '../components/MenuColor';
+import Select from 'react-select'
 
-function CartButton({}) {
-  return (
-    <button>
-      <img src="data:images/png-clipart-bird-logo-bird-animals-logo-thumbnail.jpeg"/>
-    </button>
-  );
-}
+
+const options = [
+  { value: 'chocolate', label: 'Chocolate' },
+  { value: 'strawberry', label: 'Strawberry' },
+  { value: 'vanilla', label: 'Vanilla' }
+]
 
 export default function Page() {
 
@@ -18,53 +25,48 @@ export default function Page() {
   <div>
     <body>
       <div className="topnav">
-        <a className="container">
-          <div className="bar1"></div>
-          <div className="bar2"></div>
-          <div className="bar3"></div>
-        </a>
 
-        <Link className="active" href="Home">Home</Link>
+        <Link href="Home">Home</Link>
         <Link href="AboutUs">About Us</Link>
-        <Link href="Products">Products</Link>
+        <Link className="active" href="Products">Products</Link>
         <Link href="Shipping">Shipping</Link>
 
-        <div className="logo-image"></div>
+        <Link className="logo-image" href="Home"></Link>
 
         <Link href="Cart" className="split">Cart</Link>
         <Link href="Sign In" className="split">Sign In</Link>
 
       </div>
 
-      <section>
-        <h1>Products</h1>
-        <div className="row">
-          <div className="column2">
-            <img src="app/images/sticker-design-with-blue-t-shirt-isolated_1308-79625.jpg"></img>
-          </div>
-          <div className="column2">
-            <p>In a whimsical land where polka-dotted elephants traded marshmallow umbrellas for rainbow-colored spaghetti, 
-              the moon giggled uncontrollably while juggling intergalactic pickles. Jellybean-shaped clouds performed synchronized 
-              cartwheels across the cotton candy sky, leaving trails of bubblegum laughter in their wake. Meanwhile, talking rubber 
-              chickens engaged in heated debates about the most fashionable sock patterns for disco-dancing giraffes. The 
-              rivers flowed with liquid sunshine, and trees whispered secrets in a language only understood by invisible unicorns 
-              with invisibility cloaks. It was a place where logic took a vacation and imagination rode a rollercoaster made of bubble wrap.
-            </p>
-          </div>
+      <div className="sidenav">
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#">Filter</a>
+
+        <div className="app">
+          <MenuCategory />
         </div>
-      </section>
+
+        <div className="app">
+          <MenuSize />
+        </div>
+
+        <div className="app">
+          <MenuInseam />
+        </div>
+
+        <div className="app">
+          <MenuColor />
+        </div>
+
+      </div>
 
       <section>
-        <div className="pagination">
-          <a href="#">&laquo;</a>
-          <a href="#">1</a>
-          <a className="active" href="#">2</a>
-          <a href="#">3</a>
-          <a href="#">4</a>
-          <a href="#">5</a>
-          <a href="#">6</a>
-          <a href="#">&raquo;</a>
-        </div>
+        <h1>Products</h1>
+        <h1>Products</h1>
       </section>
       
       <footer className="footer">
