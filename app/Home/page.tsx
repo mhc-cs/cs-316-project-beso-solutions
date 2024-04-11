@@ -18,19 +18,15 @@ export default function Page() {
   return (
   <div>
     <body>
+
       <div className="topnav">
-        <a className="container">
-          <div className="bar1"></div>
-          <div className="bar2"></div>
-          <div className="bar3"></div>
-        </a>
 
         <Link className="active" href="Home">Home</Link>
         <Link href="AboutUs">About Us</Link>
         <Link href="Products">Products</Link>
         <Link href="Shipping">Shipping</Link>
 
-        <div className="logo-image"></div>
+        <Link className="logo-image" href="Home"></Link>
 
         <Link href="Cart" className="split">Cart</Link>
         <Link href="Sign In" className="split">Sign In</Link>
