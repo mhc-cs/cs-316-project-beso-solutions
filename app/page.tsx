@@ -86,3 +86,17 @@ export default function Page() {
   </div>
   );
 }
+
+
+// Avoid caching, so that hot udates work as expected
+export const dynamic = 'force-dynamic' 
+
+// This function should be called once 
+async function getData(search:string[]) {
+    const res = await fetch('http://cs-vm-06.cs.mtholyoke.edu:31600/search?parametername:balha blah balh')
+    if (!res.ok) {
+       throw new Error('Failed to fetch data')
+    }
+
+    return res.json()
+}
