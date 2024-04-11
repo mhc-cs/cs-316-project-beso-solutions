@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-import { DevBundlerService } from 'next/dist/server/lib/dev-bundler-service';
 
 // Connect to the database
 mongoose.connect(process.env.MONGODB_URI!);
@@ -36,6 +35,28 @@ const ProductSchema = new mongoose.Schema({
         
 });
 
+
+const cartSchema = new mongoose.Schema({
+    name: String,
+    description: String, //client description of their product
+    category: String,//shirt, t shirt, 
+    material: String, //jean, cotton, ect
+    colors:[
+        {
+            color: String, //dark wash/ medium wash
+            image: [ImageSchema],
+            sizes:[{
+                size: String,
+                inseams:[{
+                    inseam: Number,
+                    price: Number,
+                    stock: Number,
+                }]
+            }]
+        }
+    ],
+    
+});
 
 // const Pants = new mongoose.Schema({
 //     category: "Pants",//shirt, t shirt, 
