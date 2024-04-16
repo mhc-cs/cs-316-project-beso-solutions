@@ -29,7 +29,15 @@ const ProductSchema = new mongoose.Schema({
                     inseams:[{
                         inseam: Number,
                         price: Number,
-                        stock: {type: Number, default: 0},
+                        stock: {type: Number,
+                                  validate: {
+                                    validator: function (v) {
+                                      return v >= 0;
+                                    },
+                                    message: (props) => `${props.value}: There isn't enough stock!`,
+                                  },
+                                  default: 0,
+                            }
                     }]
                 }]
             }
@@ -47,7 +55,7 @@ const CartSchema = new mongoose.Schema({
                 color: String,
                 size: String,
                 inseam: Number,
-                quantity: Number,
+                quantity: {type: Number, required:[true, "Need Item Quantity"]},
                 price: Number
             }]
 });
