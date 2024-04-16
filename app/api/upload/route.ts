@@ -9,7 +9,7 @@ router.post('/api/products', (req, res) => {
         _id: new mongoose.Types.ObjectId(),
         name: req.body.name,
         description: req.body.description, //client description of their product
-        category: req.body.categoryv,//shirt, t shirt, 
+        category: req.body.category,//shirt, t shirt, 
         material: req.body.material, //jean, cotton, ect
         colors:[
             {
