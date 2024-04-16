@@ -1,25 +1,31 @@
 import {NextResponse} from 'next/server';
-import {ProductModel} from '../../db';
+import {CartModel} from '../../db';
 
 export async function POST(request: Request) {
+        
+    const updateStatus = await CartModel.updateOne(
+            {"userID": request.body.name, 
+            "items.name": request.body.itemName,
+            "items.color": request.body.itemColor,
+            "items.size": request.body.itemSize,
+            "items.inseam": request.body.itemInseam},
+            { $inc: { "items.quantity": request.body.quantity} })
     
-    await ProductModel.updateOne(
-        {"name": request.body.name},
-        { "$push": 
-            {"colors": 
-                {
-                "color": request.body.color,
-                "sizes":[{
-                        "size": request.body.size,
-                        "inseams": [{
-                            "ineseam": request.body.inseam,
-                            "price":request.body.prize, 
-                            "stock":request.body.stock
-                        }]
-                    }]
+    if(updateStatus.modifiedCount == 0){ //no exisiting version of this product in cart
+        await CartModel.updateOne(
+            {"userID": request.body.userID},
+            { "$push": 
+                {"items": 
+                    {
+                        "name": request.body.itemName,
+                        "color": request.body.itemColor,
+                        "size": request.body.itemSize,
+                        "inseam": request.body.itemInseam,
+                        "quantity": request.body.itemQuantity,
+                        "price": request.body.itemPrice
+                    }
                 }
-            }
+            })
         }
-    )
 
 }

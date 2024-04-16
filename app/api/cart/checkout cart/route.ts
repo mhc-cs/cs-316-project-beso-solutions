@@ -30,9 +30,16 @@ export async function POST(request: Request) {
            console.log(err);
           }
       }
-    
-    //TODO: checkout?
-    
-    return NextResponse.json(results || {});
+      
+      //update cart status
+      await CartModel.updateOne(
+          {"userID": request.body.userID},
+            {"paymentStatus": "started",
+            "orderStatus": "ordered"
+        })
+
+        //TODO: checkout?
+        
+    // return NextResponse.json(results || {});
 
 }
