@@ -4,7 +4,7 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import { url } from "inspector";
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import Axios from 'axios';
 import Link from 'next/link';
 import MenuSize from '../components/MenuSize';
 import MenuCategory from '../components/MenuCategory';
@@ -13,11 +13,19 @@ import MenuColor from '../components/MenuColor';
 import Select from 'react-select'
 
 
-const options = [
-  { value: 'chocolate', label: 'Chocolate' },
-  { value: 'strawberry', label: 'Strawberry' },
-  { value: 'vanilla', label: 'Vanilla' }
-]
+function App() {
+    const [name, setName] = useState("")
+    const [role, setRole] = useState("")
+  
+    const handleSubmit = (e) => {
+        e.preventDefault();
+  
+        Axios.post('http://cs-vm-06.cs.mtholyoke.edu:31600/api/upload', {
+            fullName: name,
+            companyRole: role
+        })
+    }
+}
 
 export default function Page() {
 
@@ -36,40 +44,40 @@ export default function Page() {
 
         <Link href="Cart" className="split">Cart</Link>
         <Link href="Sign In" className="split">Sign In</Link>
-        <Link href="ProductUpload" className="split">Input New Products</Link>
-
-      </div>
-
-      <div className="sidenav">
-        <a href="#"></a>
-        <a href="#"></a>
-        <a href="#"></a>
-        <a href="#"></a>
-        <a href="#"></a>
-        <a href="#">Filter</a>
-
-        <div className="app">
-          <MenuCategory />
-        </div>
-
-        <div className="app">
-          <MenuSize />
-        </div>
-
-        <div className="app">
-          <MenuInseam />
-        </div>
-
-        <div className="app">
-          <MenuColor />
-        </div>
 
       </div>
 
       <section>
-        <h1>Products</h1>
-        <h1>Products</h1>
+        <h1>Input New Products</h1>
+        <h1>Input New Products</h1>
       </section>
+
+      <header className="App-header"> 
+        <div className="logIn-form">
+            <form onSubmit={handleSubmit}>
+                <p>First Name</p>
+
+                <input
+                  className = "Name"
+                  type="text"
+                  placeholder="First name ..."
+                  onChange={(e) => {setName(e.target.value)}}
+                />
+
+                <p> Company Role</p>
+
+                <input 
+                  className = "Role"
+                  type="text"
+                  placeholder = "Role...."
+                  onChange={(e) => {setRole(e.target.value)}}
+                />
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+      </header>
+
       
       <footer className="footer">
         <ul>
