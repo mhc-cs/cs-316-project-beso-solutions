@@ -17,23 +17,14 @@ export default function Page() {
   return (
   <div>
     <body>
-      <header className="header">
-        <img src="data:images/png-clipart-bird-logo-bird-animals-logo-thumbnail.jpeg"/>
-      </header>
-
       <div className="topnav">
-        <a className="container">
-          <div className="bar1"></div>
-          <div className="bar2"></div>
-          <div className="bar3"></div>
-        </a>
 
-        <Link href="Home">
-          <img src="images/png-clipart-bird-logo-bird-animals-logo-thumbnail.jpeg"/>
-        </Link>
-        <Link className="active" href="#AboutUs">About Us</Link>
+        <Link href="Home">Home</Link>
+        <Link className="active" href="AboutUs">About Us</Link>
         <Link href="Products">Products</Link>
         <Link href="Shipping">Shipping</Link>
+
+        <Link className="logo-image" href="Home"></Link>
 
         <Link href="Cart" className="split">Cart</Link>
         <Link href="Sign In" className="split">Sign In</Link>
