@@ -47,7 +47,7 @@ const Menu: React.FC = (): JSX.Element => {
           dismissHandler(e)
         }
       >
-        <div>{selectOption ? "Select Size: " + selectOption : "Select Size..."} </div>
+        <div>{selectOption ? "Select Color: " + selectOption : "Select Color..."} </div>
         {showDropDown && (
           <DropDown
             options={options()}
