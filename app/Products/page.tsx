@@ -30,6 +30,7 @@ export default function Page() {
         <Link href="AboutUs">About Us</Link>
         <Link className="active" href="Products">Products</Link>
         <Link href="Shipping">Shipping</Link>
+        <Link href="Sizing">Sizing</Link>
 
         <Link className="logo-image" href="Home"></Link>
 
