@@ -3,8 +3,8 @@ import mongoose from 'mongoose';
 // Connect to the database
 mongoose.connect(process.env.MONGODB_URI!);
 // const productCategories = ['shirt', 't-shirt', 'shorts', 'jeans']
-const orderStatuses = ['processed', 'shipped', 'delivered', 'failed']
-const paymentStatuses = ['processed', 'failed']
+const orderStatuses = ['not started','ordered', 'shipped', 'delivered', 'failed']
+const paymentStatuses = ['not started', 'started','processed', 'failed']
 
 const ImageSchema = new mongoose.Schema({ 
     img: { 
@@ -48,8 +48,8 @@ const ProductSchema = new mongoose.Schema({
 
 const CartSchema = new mongoose.Schema({
     userID: String,
-    paymentStatus: { type: String, enum: paymentStatuses}, //client description of their product
-    orderStatus: { type: String, enum: orderStatuses},//shirt, t shirt, 
+    paymentStatus: { type: String, enum: paymentStatuses, default: 'not started'}, //client description of their product
+    orderStatus: { type: String, enum: orderStatuses, default: 'not started'},//shirt, t shirt, 
     items:[{
                 name: String,
                 color: String,
