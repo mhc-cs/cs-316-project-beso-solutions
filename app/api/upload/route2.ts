@@ -34,7 +34,7 @@ var upload = multer({
 });
 
 
-router.post('/product-images', upload.single('image'), (req, res, next) => {
+router.post('/../images', upload.single('image'), (req, res, next) => {
     const url = req.protocol + '://' + req.get('host')
     const user = new ProductModel({
         _id: new mongoose.Types.ObjectId(),
