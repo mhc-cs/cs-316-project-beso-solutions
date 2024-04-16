@@ -5,15 +5,12 @@ import { url } from "inspector";
 import Link from 'next/link';
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
 
-function CartButton({}) {
-  return (
-    <button>
-      <img src="data:images/png-clipart-bird-logo-bird-animals-logo-thumbnail.jpeg"/>
-    </button>
-  );
-}
 
-export default function Page() {
+
+export default async function Page() {
+
+  
+  const results = await getData()
 
   return (
   <div>
@@ -25,6 +22,7 @@ export default function Page() {
         <Link href="AboutUs">About Us</Link>
         <Link href="Products">Products</Link>
         <Link href="Shipping">Shipping</Link>
+        <Link href="Sizing">Sizing</Link>
 
         <Link className="logo-image" href="Home"></Link>
 
@@ -67,6 +65,19 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      <section>
+        <div>
+          <h1>Hello in Multiple Languages</h1>
+          <ul>
+            {results.map(() => (
+              <li key={results.name} >
+              <p> say {results.category}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
       
       <footer className="footer">
         <ul>
@@ -81,4 +92,17 @@ export default function Page() {
 
   </div>
   );
+} 
+
+// Avoid caching, so that hot udates work as expected
+export const dynamic = 'force-dynamic' 
+
+// This function should be called once 
+async function getData() {
+    const res = await fetch('http://cs-vm-06.cs.mtholyoke.edu:31600/api/search?category=jean&size=s')
+    if (!res.ok) {
+       throw new Error('Failed to fetch data')
+    }
+
+    return res.json()
 }

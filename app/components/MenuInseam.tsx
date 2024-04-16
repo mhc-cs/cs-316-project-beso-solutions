@@ -5,7 +5,7 @@ const Menu: React.FC = (): JSX.Element => {
   const [showDropDown, setShowDropDown] = useState<boolean>(false);
   const [selectOption, setSelectOption] = useState<string>("");
   const options = () => {
-    return ["27", "28", "29", "30", "31"];
+    return ["26", "27", "28", "29", "30"];
   };
 
   /**
