@@ -9,9 +9,6 @@ import Link from 'next/link';
 
 export default async function Page() {
 
-  
-  const results = await getData()
-
   return (
   <div>
     <body>
@@ -66,18 +63,6 @@ export default async function Page() {
         </div>
       </section>
 
-      <section>
-        <div>
-          <h1>Hello in Multiple Languages</h1>
-          <ul>
-            {results.map(() => (
-              <li key={results.name} >
-              <p> say {results.category}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
       
       <footer className="footer">
         <ul>
@@ -93,16 +78,3 @@ export default async function Page() {
   </div>
   );
 } 
-
-// Avoid caching, so that hot udates work as expected
-export const dynamic = 'force-dynamic' 
-
-// This function should be called once 
-async function getData() {
-    const res = await fetch('http://cs-vm-06.cs.mtholyoke.edu:31600/api/search?category=jean&size=s')
-    if (!res.ok) {
-       throw new Error('Failed to fetch data')
-    }
-
-    return res.json()
-}

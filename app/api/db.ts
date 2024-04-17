@@ -1,7 +1,18 @@
 import mongoose from 'mongoose';
+import Image from "next/image";
+import styles from "./page.module.css";
+import { url } from "inspector";
+import React, { createFactory, useEffect, useState } from 'react';
+import Axios from 'axios';
+import Link from 'next/link';
+import MenuSize from '../components/MenuSize';
+import MenuCategory from '../components/MenuCategory';
+import MenuInseam from '../components/MenuInseam';
+import MenuColor from '../components/MenuColor';
+import Select from 'react-select'
 
 // Connect to the database
-mongoose.connect(process.env.MONGODB_URI!);
+mongoose.connect(process.env.MONGODB_URI!, {useNewUrlParser: true});
 // const productCategories = ['shirt', 't-shirt', 'shorts', 'jeans']
 const orderStatuses = ['not started','ordered', 'shipped', 'delivered', 'failed']
 const paymentStatuses = ['not started', 'started','processed', 'failed']
