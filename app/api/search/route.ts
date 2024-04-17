@@ -8,7 +8,6 @@ export async function GET(request: Request) {
     // const res = await fetch(request)
     // const url = await res.url;
     const searchParams = new URLSearchParams(url.search);
-    return NextResponse.json(searchParams.get('category') || {});
 
     if (searchParams.size == 1){
         const results = await ProductModel.find(

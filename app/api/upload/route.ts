@@ -4,7 +4,7 @@ let express = require('express'),
     mongoose = require('mongoose'),
     router = express.Router();
 
-router.post('/api/products', (req, res) => {
+router.post('/api/upload', (req, res) => {
     const productDoc = new ProductModel({
         _id: new mongoose.Types.ObjectId(),
         name: req.body.name,
