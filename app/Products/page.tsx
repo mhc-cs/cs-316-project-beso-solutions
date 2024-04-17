@@ -36,6 +36,7 @@ export default function Page() {
 
         <Link href="Cart" className="split">Cart</Link>
         <Link href="Sign In" className="split">Sign In</Link>
+        <Link href="ProductUpload" className="split">Input New Products</Link>
 
       </div>
 
