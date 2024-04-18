@@ -10,16 +10,29 @@ import MenuSize from '../components/MenuSize';
 import MenuCategory from '../components/MenuCategory';
 import MenuInseam from '../components/MenuInseam';
 import MenuColor from '../components/MenuColor';
-import Select from 'react-select'
-
-
-const options = [
-  { value: 'chocolate', label: 'Chocolate' },
-  { value: 'strawberry', label: 'Strawberry' },
-  { value: 'vanilla', label: 'Vanilla' }
-]
+import Select from 'react-select';
+import ProductList from '../components/ProductList'
 
 export default function Page() {
+
+  const [products, getProducts] = useState('');
+  
+  const url = 'http://cs-vm-06.cs.mtholyoke.edu:31600/./app/api/';
+
+  
+  useEffect(() => {
+    getAllProducts();
+  }, []);
+
+  const getAllProducts = () => {
+    axios.get(`${url}search`)
+    .then((response) => {
+      const allProducts = response.data.products.allProducts;
+      getProducts(allProducts);
+    })
+    .catch(error => console.error(`Error: ${error}`));
+  }
+
 
   return (
   <div>
@@ -40,36 +53,40 @@ export default function Page() {
 
       </div>
 
-      <div className="sidenav">
-        <a href="#"></a>
-        <a href="#"></a>
-        <a href="#"></a>
-        <a href="#"></a>
-        <a href="#"></a>
-        <a href="#">Filter</a>
-
-        <div className="app">
-          <MenuCategory />
-        </div>
-
-        <div className="app">
-          <MenuSize />
-        </div>
-
-        <div className="app">
-          <MenuInseam />
-        </div>
-
-        <div className="app">
-          <MenuColor />
-        </div>
-
-      </div>
-
       <section>
         <h1>Products</h1>
-        <h1>Products</h1>
+        <div className="row">
+          <div className="column30">
+            <div className="sidenav">
+              <a>Filter</a>
+
+              <div className="app">
+                <MenuCategory />
+              </div>
+
+              <div className="app">
+                <MenuSize />
+              </div>
+
+              <div className="app">
+                <MenuInseam />
+              </div>
+
+              <div className="app">
+                <MenuColor />
+              </div>
+              <a></a>
+
+            </div>
+          </div>
+          <ProductList products={products}/>
+          <div>
+            
+          </div>
+        </div>
       </section>
+
+
       
       <footer className="footer">
         <ul>

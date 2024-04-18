@@ -1,17 +1,13 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import { url } from "inspector";
-
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import Link from 'next/link';
+import Select from 'react-select';
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
 
-function CartButton({}) {
-  return (
-    <button>
-      <img src="data:images/png-clipart-bird-logo-bird-animals-logo-thumbnail.jpeg"/>
-    </button>
-  );
-}
 
 export default function Page() {
 

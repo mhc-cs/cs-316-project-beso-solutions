@@ -4,7 +4,7 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import { url } from "inspector";
 import React, { createFactory, useEffect, useState } from 'react';
-import Axios from 'axios';
+import axios from 'axios';
 import Link from 'next/link';
 import MenuSize from '../components/MenuSize';
 import MenuCategory from '../components/MenuCategory';
@@ -25,11 +25,10 @@ export default function Page() {
   const [price, setPrice] = useState("")
   const [stock, setStock] = useState("")
 
-
   const handleSubmit = (e) => {
       e.preventDefault();
 
-      Axios.post('http://cs-vm-06.cs.mtholyoke.edu:31600/api/upload', {
+      axios.post('http://cs-vm-06.cs.mtholyoke.edu:31600/./app/api/upload', {
           name: name,
           description: description,
           category: category,
@@ -49,7 +48,7 @@ export default function Page() {
 
         <Link href="Home">Home</Link>
         <Link href="AboutUs">About Us</Link>
-        <Link className="active" href="Products">Products</Link>
+        <Link href="Products">Products</Link>
         <Link href="Shipping">Shipping</Link>
         <Link href="Sizing">Sizing</Link>
 
@@ -57,6 +56,7 @@ export default function Page() {
 
         <Link href="Cart" className="split">Cart</Link>
         <Link href="Sign In" className="split">Sign In</Link>
+        <Link className="active" href="ProductUpload" className="split">Input New Products</Link>
 
       </div>
 
@@ -64,7 +64,7 @@ export default function Page() {
         <header className="App-header"> 
           <div className="logIn-form">
               <form onSubmit={handleSubmit}>
-                  <p>First Name</p>
+                  <p>Input New Products</p>
 
                   <input
                     className = "Name"
@@ -72,16 +72,12 @@ export default function Page() {
                     placeholder="Product name ..."
                     onChange={(e) => {setName(e.target.value)}}
                   />
-
-                  <p> Company Role</p>
-
                   <input 
                     className = "Description"
                     type="text"
                     placeholder = "Description...."
                     onChange={(e) => {setDescription(e.target.value)}}
                   />
-
                   <input 
                     className = "Category"
                     type="text"
@@ -130,10 +126,10 @@ export default function Page() {
           </div>
         </header>
       </div>
-      
+
       <footer className="footer">
         <ul>
-          <a className="text-footer">Copyright ©-All rights are reserved|</a>
+          <a className="text-footer">Copyright ©-All rights are reserved  | </a>
           <a>Social Media Here</a>
         </ul>
       </footer>
