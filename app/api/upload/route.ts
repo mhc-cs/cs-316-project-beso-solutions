@@ -1,40 +1,43 @@
-import {ProductModel} from '../db';
+import { MongoClient } from "mongodb";
+import { NextResponse } from 'next/server';
 
-let express = require('express'),
-    mongoose = require('mongoose'),
-    router = express.Router();
+const mongoose = require('mongoose');
+var ProductModel = require('./db');
+mongoose.connect('mongodb://localhost:27017/maindb', { useNewUrlParser: true});
 
-router.post('/api/upload', (req, res) => {
+
+export async function POST(req: Request) {
     const productDoc = new ProductModel({
-        _id: new mongoose.Types.ObjectId(),
-        name: req.body.name,
-        description: req.body.description, //client description of their product
-        category: req.body.category,//shirt, t shirt, 
-        material: req.body.material, //jean, cotton, ect
-        colors:[
-            {
-                color: req.body.color, //dark wash/ medium wash
-                sizes:[{
-                    size: req.body.size,
-                    inseams:[{
-                        image: "placeholder",
-                        inseam: req.body.inseam,
-                        price: req.body.price,
-                        stock: req.body.stock,
-                    }]
+    _id: new mongoose.Types.ObjectId(),
+    name: req.body.name,
+    description: req.body.description, //client description of their product
+    category: req.body.category,//shirt, t shirt, 
+    material: req.body.material, //jean, cotton, ect
+    colors:[
+        {
+            color: req.body.color, //dark wash/ medium wash
+            sizes:[{
+                size: req.body.size,
+                inseams:[{
+                    image: "placeholder",
+                    inseam: req.body.inseam,
+                    price: req.body.price,
+                    stock: req.body.stock,
                 }]
-            }
-        ],
-        
+            }]
+        }
+    ],  
     });
-    productDoc.save().then(result => {
-        res.status(201).json({
-            message: "Product Added successfully!"
+    try{
+        await productDoc.save();
+    }catch (error) {
+        return new Response(`Webhook error: ${error.message}`, {
+          status: 400,
         })
-    }).catch(err => {
-        console.log(err),
-            res.status(500).json({
-                error: err
-            });
-    })
-  });
+      }
+      console.log("HAPPY")
+
+      return new Response('Success!', {
+        status: 200,
+      })
+  }
