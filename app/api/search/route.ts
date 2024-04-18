@@ -1,8 +1,10 @@
 import {NextResponse} from 'next/server';
-import {ProductModel} from '../db';
+var ProductModel = require('../db');
+
 
 // Gets all language data from the DB
 export async function GET(request: Request) {
+    console.log('HELLO')
     //https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams/URLSearchParams
     const url = new URL(request.url);
     // const res = await fetch(request)

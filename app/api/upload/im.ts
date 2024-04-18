@@ -1,4 +1,5 @@
-import {ProductModel} from '../db';
+var ProductModel = require('../db');
+
 
 let express = require('express'),
     multer = require('multer'),

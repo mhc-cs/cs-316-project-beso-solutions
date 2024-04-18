@@ -17,7 +17,7 @@ export default function Page() {
 
   const [products, getProducts] = useState('');
   
-  const url = 'http://cs-vm-06.cs.mtholyoke.edu:31600/./app/api/';
+  const url = 'http://cs-vm-06.cs.mtholyoke.edu:31600/api/';
 
   
   useEffect(() => {

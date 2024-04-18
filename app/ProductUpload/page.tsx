@@ -27,8 +27,7 @@ export default function Page() {
 
   const handleSubmit = (e) => {
       e.preventDefault();
-
-      axios.post('http://cs-vm-06.cs.mtholyoke.edu:31600/./app/api/upload', {
+      axios.post('http://cs-vm-06.cs.mtholyoke.edu:31600/api/upload', {
           name: name,
           description: description,
           category: category,
@@ -65,7 +64,7 @@ export default function Page() {
           <div className="logIn-form">
               <form onSubmit={handleSubmit}>
                   <p>Input New Products</p>
-
+                    
                   <input
                     className = "Name"
                     type="text"
