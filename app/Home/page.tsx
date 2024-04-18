@@ -1,8 +1,12 @@
+
 import Image from "next/image";
 import styles from "./page.module.css";
 import { url } from "inspector";
-
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import Link from 'next/link';
+import Select from 'react-select';
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
 
 
@@ -35,7 +39,7 @@ export default async function Page() {
         <div className="row">
           <div className="column3">
             <div className="card">
-              <img src="images/sticker-design-with-blue-t-shirt-isolated_1308-79625.jpg" alt="Denim Jeans"></img>
+              <img src="images/IMG_6339.jpg" alt="Denim Jeans"></img>
               <h1>Tailored Jeans 1</h1>
               <p className="price">$19.99</p>
               <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>

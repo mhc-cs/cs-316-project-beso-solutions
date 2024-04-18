@@ -1,8 +1,10 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import { url } from "inspector";
-
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import Link from 'next/link';
+import Select from 'react-select';
 
 function CartButton({}) {
   return (
@@ -28,7 +30,7 @@ export default function Page() {
         <Link className="logo-image" href="Home"></Link>
 
         <Link href="Cart" className="split">Cart</Link>
-        <Link href="Sign In" className="split">Sign In</Link>
+        <Link href="SignIn" className="split">Sign In</Link>
 
       </div>
 
@@ -45,7 +47,7 @@ export default function Page() {
             </p>
           </div>
           <div className="column2">
-            <img src="app/images/sticker-design-with-blue-t-shirt-isolated_1308-79625.jpg"></img>
+            <img src="app/images/Missi.jpg"/>
           </div>
         </div>
       </section>
