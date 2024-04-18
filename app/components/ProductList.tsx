@@ -20,7 +20,7 @@ export default function ProductList (props) {
                 })
             )
         }else{
-            return(<h3>No Products Yet</h3>)
+            return(<h3>No Products Available</h3>)
         }
     }
 

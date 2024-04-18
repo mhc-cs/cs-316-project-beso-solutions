@@ -127,11 +127,9 @@ export default function Page() {
         </header>
       </div>
 
-
-      
       <footer className="footer">
         <ul>
-          <a className="text-footer">Copyright ©-All rights are reserved|</a>
+          <a className="text-footer">Copyright ©-All rights are reserved  | </a>
           <a>Social Media Here</a>
         </ul>
       </footer>
