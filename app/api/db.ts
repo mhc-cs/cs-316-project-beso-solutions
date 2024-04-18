@@ -17,17 +17,17 @@ const ImageSchema = new Schema({
 
 // Define the schema for the data
 const ProductSchema = new Schema({
-        name: String,
+        name: {type: String,lowercase: true},
         description: String, //client description of their product
-        category: String,//shirt, t shirt, 
-        material: String, //jean, cotton, ect
+        category: {type: String,lowercase: true},//shirt, t shirt, 
+        material: {type: String,lowercase: true}, //jean, cotton, ect
         colors:[
             {
-                color: String, //dark wash/ medium wash
+                color: {type: String,lowercase: true}, //dark wash/ medium wash
                 // image: [ImageSchema],
                 image: String,
                 sizes:[{
-                    size: String,
+                    size: {type: String,lowercase: true},
                     inseams:[{
                         inseam: Number,
                         price: Number,
