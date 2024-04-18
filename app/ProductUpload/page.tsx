@@ -27,6 +27,7 @@ export default function Page() {
 
   const handleSubmit = (e) => {
       e.preventDefault();
+    
       axios.post('http://cs-vm-06.cs.mtholyoke.edu:31600/api/upload', {
           name: name,
           description: description,
