@@ -38,12 +38,13 @@ export default function Page() {
         <h1>About Us</h1>
         <div className="row">
           <div className="column2">
-            <p>In a whimsical land where polka-dotted elephants traded marshmallow umbrellas for rainbow-colored spaghetti, 
-              the moon giggled uncontrollably while juggling intergalactic pickles. Jellybean-shaped clouds performed synchronized 
-              cartwheels across the cotton candy sky, leaving trails of bubblegum laughter in their wake. Meanwhile, talking rubber 
-              chickens engaged in heated debates about the most fashionable sock patterns for disco-dancing giraffes. The 
-              rivers flowed with liquid sunshine, and trees whispered secrets in a language only understood by invisible unicorns 
-              with invisibility cloaks. It was a place where logic took a vacation and imagination rode a rollercoaster made of bubble wrap.
+            <p>MISSI is a premier US clothing brand dedicated to catering to petite women with 
+              heights ranging from 4’11 to 5’4. Specializing in various denim styles meticulously 
+              crafted to perfectly complement petite frames, our garments are designed with 
+              precision and passion. We take pride in sourcing high-quality materials and 
+              manufacturing our products with care, ensuring exceptional quality and fit. While 
+              our roots may extend to China for production, our commitment to providing petite women 
+              with fashionable and flattering clothing knows no bounds.
             </p>
           </div>
           <div className="column2">

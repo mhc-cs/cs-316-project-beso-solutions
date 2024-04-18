@@ -33,11 +33,33 @@ export default function Page() {
             Our sizes will be based on US sizes as per the chart ranging from 00-20.
         </p>
         <p></p>
-        <p align="center">26’ inseam 4’11</p>
-        <p align="center">27” inseam 5’1</p>
-        <p align="center">28” inseam 5’2</p>
-        <p align="center">29” inseam 5’3</p>
-        <p align="center">30” inseam 5’4</p>
+
+        <table id="sizing">
+          <tr>
+            <th>Height</th>
+            <th>Inseam</th>
+          </tr>
+          <tr>
+            <td>4'11</td>
+            <td>26"</td>
+          </tr>
+          <tr>
+            <td>5'1</td>
+            <td>27"</td>
+          </tr>
+          <tr>
+            <td>5'2</td>
+            <td>28"</td>
+          </tr>
+          <tr>
+            <td>5'3</td>
+            <td>29"</td>
+          </tr>
+          <tr>
+            <td>5'4</td>
+            <td>30"</td>
+          </tr>
+        </table>
 
         <table id="sizing">
           <tr>
