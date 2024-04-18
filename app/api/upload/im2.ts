@@ -1,8 +1,8 @@
 //ideal image uploading outline.
 
 import {NextResponse} from 'next/server';
-import {ProductModel} from '../db';
-import {ImageModel} from '../db';
+var ProductModel = require('../db');
+var ImageModel = require('../db');
 
 // Gets all language data from the DB
 export async function POST(request: Request) {

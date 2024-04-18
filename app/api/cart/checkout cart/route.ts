@@ -1,6 +1,6 @@
 import {NextResponse} from 'next/server';
-import {ProductModel} from '../../db';
-import {CartModel} from '../../db';
+var ProductModel = require('../../db');
+var CartModel = require('../../db');
 
 export async function POST(request: Request) {
     const url = new URL(request.url);

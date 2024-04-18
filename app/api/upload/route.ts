@@ -1,12 +1,10 @@
-import { MongoClient } from "mongodb";
-import { NextResponse } from 'next/server';
-
 const mongoose = require('mongoose');
-var ProductModel = require('./db');
+var ProductModel = require('../db');
 mongoose.connect('mongodb://localhost:27017/maindb', { useNewUrlParser: true});
 
-
+console.log("SetUp")
 export async function POST(req: Request) {
+    console.log("Start")
     const productDoc = new ProductModel({
     _id: new mongoose.Types.ObjectId(),
     name: req.body.name,
