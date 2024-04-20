@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 import styles from "./page.module.css";
 import { url } from "inspector";
@@ -34,8 +33,49 @@ export default async function Page() {
 
       <div className="bg"></div>
 
+      <div className="main">
+        <h1 className="main_heading">Products New In</h1>
+        <div className="cards">
+          <div className="cards_inner">
+            <div className="card">
+              <img src="images/IMG_6339.jpg" alt="Denim Jeans"></img>
+              <h1>Tailored Jeans 2</h1>
+              <p className="price">$19.99</p>
+              <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+              
+            </div>
+            <div className="card">Product 2</div>
+            <div className="card">Product 3</div>
+            <div className="card">Product 4</div>
+            <div className="card">Product 5</div>
+          </div>
+        </div>
+      </div>
+
       <section>
         <h1>Products New In</h1>
+        <div className="card">
+          <img src="images/IMG_6339.jpg" alt="Denim Jeans"></img>
+          <h1>Tailored Jeans 1</h1>
+          <p className="price">$19.99</p>
+          <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+          <p><button>Add to Cart</button></p>
+        </div>
+        <div className="card">
+          <img src="images/IMG_6339.jpg" alt="Denim Jeans"></img>
+          <h1>Tailored Jeans 1</h1>
+          <p className="price">$19.99</p>
+          <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+          <p><button>Add to Cart</button></p>
+        </div>
+        <div className="card">
+          <img src="images/IMG_6339.jpg" alt="Denim Jeans"></img>
+          <h1>Tailored Jeans 1</h1>
+          <p className="price">$19.99</p>
+          <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+          <p><button>Add to Cart</button></p>
+        </div>
+
         <div className="row">
           <div className="column3">
             <div className="card">
