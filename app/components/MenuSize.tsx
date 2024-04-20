@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import DropDown from "./DropDown";
 
-const Menu: React.FC = (): JSX.Element => {
+interface MenuSizeProps {
+  onSelect: (option: string) => void;
+}
+
+const Menu: React.FC<MenuSizeProps> = ({onSelect}): JSX.Element => {
   const [showDropDown, setShowDropDown] = useState<boolean>(false);
   const [selectOption, setSelectOption] = useState<string>("");
   const options = () => {
@@ -13,6 +17,16 @@ const Menu: React.FC = (): JSX.Element => {
    */
   const toggleDropDown = () => {
     setShowDropDown(!showDropDown);
+  };
+
+  /**
+   * Callback function to handle option selection
+   * @param option The selected option
+   */
+  const handleOptionSelection = (option: string): void => {
+    setSelectOption(option);
+    onSelect(option); // Callback to parent component with the selected option
+    toggleDropDown(); // Close the dropdown after selection
   };
 
   /**
