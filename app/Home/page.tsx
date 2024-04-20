@@ -1,3 +1,5 @@
+//"use client"; // This is a client component
+
 import Image from "next/image";
 import styles from "./page.module.css";
 import { url } from "inspector";
@@ -5,6 +7,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Link from 'next/link';
 import Select from 'react-select';
+import Topnav from "../components/Topnav";
+import Footer from "../components/Footer";
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
 
@@ -16,20 +20,7 @@ export default async function Page() {
   <div>
     <body>
 
-      <div className="topnav">
-
-        <Link className="active" href="Home">Home</Link>
-        <Link href="AboutUs">About Us</Link>
-        <Link href="Products">Products</Link>
-        <Link href="Shipping">Shipping</Link>
-        <Link href="Sizing">Sizing</Link>
-
-        <Link className="logo-image" href="Home"></Link>
-
-        <Link href="Cart" className="split">Cart</Link>
-        <Link href="Sign In" className="split">Sign In</Link>
-
-      </div>
+      <Topnav/>
 
       <div className="bg"></div>
 
@@ -108,14 +99,15 @@ export default async function Page() {
       </section>
 
       
-      <footer className="footer">
+      {/*<footer className="footer">
         <ul>
           <a className="text-footer">Copyright ©-All rights are reserved|</a>
           <a>Social Media Here</a>
           <a href="#" className="fa fa-facebook"></a>
           <a href="#" className="fa fa-instagram"></a>
         </ul>
-      </footer>
+  </footer>*/}
+    <Footer/>
 
     </body>
 

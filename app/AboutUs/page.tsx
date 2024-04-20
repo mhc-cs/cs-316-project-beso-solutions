@@ -5,6 +5,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Link from 'next/link';
 import Select from 'react-select';
+import Topnav from "../components/Topnav";
+import Footer from "../components/Footer";
 
 function CartButton({}) {
   return (
@@ -19,20 +21,7 @@ export default function Page() {
   return (
   <div>
     <body>
-      <div className="topnav">
-
-        <Link href="Home">Home</Link>
-        <Link className="active" href="AboutUs">About Us</Link>
-        <Link href="Products">Products</Link>
-        <Link href="Shipping">Shipping</Link>
-        <Link href="Sizing">Sizing</Link>
-
-        <Link className="logo-image" href="Home"></Link>
-
-        <Link href="Cart" className="split">Cart</Link>
-        <Link href="SignIn" className="split">Sign In</Link>
-
-      </div>
+      <Topnav/>
 
       <section>
         <h1>About Us</h1>
@@ -53,12 +42,7 @@ export default function Page() {
         </div>
       </section>
       
-      <footer className="footer">
-        <ul>
-          <a className="text-footer">Copyright ©-All rights are reserved|</a>
-          <a>Social Media Here</a>
-        </ul>
-      </footer>
+      <Footer/>
 
     </body>
 
