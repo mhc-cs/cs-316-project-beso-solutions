@@ -1,0 +1,61 @@
+.logo-image{
+  width: 100px;
+  height: 50px;
+  object-fit: contain;
+  background-image: url("images/MissiLogo.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  /*width: 150px;
+  height: 75px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("images/Missi.jpg");*/
+}
+/* Style the topnav */
+.topnav {
+  overflow: hidden;
+  background-color: #F5E9DD;
+  /*height: 60px; /* Full-height: remove this if you want "auto" height */
+  width: 100%;/*160px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed topnav (stay in place on scroll) */
+  top:0;
+  left:0;
+  /*z-index: 1; */
+}
+
+/* topnav links */
+.topnav a {
+  float: left;
+  display: block;
+  color: #000000;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #caaf94;
+  color: #000000;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #b29475;
+  color: white;
+}
+
+/* Create a right-aligned (split) link inside the navigation bar */
+.topnav a.split {
+  float: right;
+  background-color: #b29475;;
+  color: white;
+}
+.topnav a.split:hover {
+  background-color: #c5aa8f;;
+  color: white;
+}

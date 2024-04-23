@@ -1,0 +1,29 @@
+.footer {
+    background-color: #e42626;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    width: 100%;/*160px;*/
+    position: fixed; /* Fixed footer (stay in place on scroll) */
+    bottom:0;
+}
+
+.social-media {
+    margin-top: 10px;
+}
+
+.social-link {
+    color: #4b43db;
+    font-size: 24px;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.social-link svg {
+    width: 24px;
+    height: 24px;
+}
+
+.social-link:hover {
+    opacity: 0.8;
+}
