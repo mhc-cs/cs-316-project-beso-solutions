@@ -2,91 +2,98 @@ import {NextResponse} from 'next/server';
 import {ProductModel} from '../db';
 
 
-
 // Gets all language data from the DB
 export async function GET(request: Request) {
     console.log('HELLO')
-    const data = await request.json();
-    if (data.size == 0){
+    console.log(request)
+    console.log(request.url)
+    //https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams/URLSearchParams
+    const url = new URL(request.url);
+    const searchParams = new URLSearchParams(url.search);
+    console.log(searchParams)
+    console.log(searchParams.size)
+    console.log(searchParams.get('color')=='')
+    console.log(searchParams.get('hello'))
+    if (searchParams.get('category') == ''){
         const results = await ProductModel.find(
             {"colors.sizes.inseams.stock":{$gt:4}}
             );
         
         return NextResponse.json(results || {});
     }
-    if (data.size == 1){
+    if (searchParams.get('color') == ''&& searchParams.get('size') == ''&& searchParams.get('inseam') == ''){
         const results = await ProductModel.find(
-            {category: data.category,"colors.sizes.inseams.stock":{$gt:4}}
+            {category: searchParams.get('category'),"colors.sizes.inseams.stock":{$gt:4}}
             );
         
         return NextResponse.json(results || {});
-    }else if (data.color==null){  
-        if (data.size==null){//cat,...
-            if (data.inseam==null){//cat
+    }else if (searchParams.get('color')==''){  
+        if (searchParams.get('size')==''){//cat,...
+            if (searchParams.get('inseam')==''){//cat
                 const results = await ProductModel.find(
-                    {category: data.category,"colors.sizes.inseams.stock":{$gt:4}}
+                    {category: searchParams.get('category'),"colors.sizes.inseams.stock":{$gt:4}}
                     );
                 
                 return NextResponse.json(results || {});
             }else{//cat,inseam
                 const results = await ProductModel.find(
-                    {category: data.category, 
-                    "colors.sizes.inseams.inseam":data.inseam,
+                    {category: searchParams.get('category'), 
+                    "colors.sizes.inseams.inseam":searchParams.get('inseam'),
                     "colors.sizes.inseams.stock":{$gt:4}}
                 );
                 return NextResponse.json(results || {});
             }
         }
-        else if (data.inseam==null){ //cat, size
+        else if (searchParams.get('inseam')==''){ //cat, size
             const results = await ProductModel.find(
-                {category: data.category, 
-                "colors.sizes.size":data.size,
+                {category: searchParams.get('category'), 
+                "colors.sizes.size":searchParams.get('size'),
                 "colors.sizes.inseams.stock":{$gt:4}}
             );
             return NextResponse.json(results || {});
         }
         //cat, size, inseam
         const results = await ProductModel.find(
-            {category: data.category, 
-            "colors.sizes.size":data.size,
-            "colors.sizes.inseams.inseam":data.inseam,
+            {category: searchParams.get('category'), 
+            "colors.sizes.size":searchParams.get('size'),
+            "colors.sizes.inseams.inseam":searchParams.get('inseam'),
             "colors.sizes.inseams.stock":{$gt:4}}
         );
         return NextResponse.json(results || {});
         
     }else{//cat, color,...
-        if (data.size==null){
-            if (data.inseam==null){ //cat, color
+        if (searchParams.get('size')==''){
+            if (searchParams.get('inseam')==''){ //cat, color
                 const results = await ProductModel.find(
-                    {category: data.category, 
-                    "colors.color":data.color,
+                    {category: searchParams.get('category'), 
+                    "colors.color":searchParams.get('color'),
                     "colors.sizes.inseams.stock":{$gt:4}}
                 );
                 return NextResponse.json(results || {});
             }else{ //cat, color, inseam
                 const results = await ProductModel.find(
-                    {category: data.category, 
-                    "colors.sizes.color":data.color,
-                    "colors.sizes.inseams.inseam":data.inseam,
+                    {category: searchParams.get('category'), 
+                    "colors.sizes.color":searchParams.get('color'),
+                    "colors.sizes.inseams.inseam":searchParams.get('inseam'),
                     "colors.sizes.inseams.stock":{$gt:4}}
                 );
                 return NextResponse.json(results || {});
             }
         }else{//cat, color, size, ..
-            if (data.inseam==null){//cat, color, size
+            if (searchParams.get('inseam')==''){//cat, color, size
                 const results = await ProductModel.find(
-                    {category: data.category, 
-                    "colors.color":data.color,
-                    "colors.sizes.size":data.size,
+                    {category: searchParams.get('category'), 
+                    "colors.color":searchParams.get('color'),
+                    "colors.sizes.size":searchParams.get('size'),
                     "colors.sizes.inseams.stock":{$gt:4}}
                 );
                 return NextResponse.json(results || {});
             }else{ //cat, color, size, inseam
                 const results = await ProductModel.find(
-                    {category: data.category, 
-                    "colors.sizes.color":data.color,
-                    "colors.sizes.size":data.size,
-                    "colors.sizes.inseams.inseam":data.inseam,
+                    {category: searchParams.get('category'), 
+                    "colors.sizes.color":searchParams.get('color'),
+                    "colors.sizes.size":searchParams.get('size'),
+                    "colors.sizes.inseams.inseam":searchParams.get('inseam'),
                     "colors.sizes.inseams.stock":{$gt:4}}
                 );
                 return NextResponse.json(results || {});
@@ -94,5 +101,3 @@ export async function GET(request: Request) {
         }
     }
 }
-
-//images
