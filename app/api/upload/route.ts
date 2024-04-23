@@ -2,25 +2,24 @@ const mongoose = require('mongoose');
 var ProductModel = require('../db');
 mongoose.connect('mongodb://localhost:27017/maindb', { useNewUrlParser: true});
 
-console.log("SetUp")
 export async function POST(req: Request) {
-    console.log("Start")
+    const data = await req.json();
     const productDoc = new ProductModel({
     _id: new mongoose.Types.ObjectId(),
-    name: req.body.name,
-    description: req.body.description, //client description of their product
-    category: req.body.category,//shirt, t shirt, 
-    material: req.body.material, //jean, cotton, ect
+    name: data.name,
+    description: data.description, //client description of their product
+    category: data.category,//shirt, t shirt, 
+    material: data.material, //jean, cotton, ect
     colors:[
         {
-            color: req.body.color, //dark wash/ medium wash
+            color: data.color, //dark wash/ medium wash
+            image: "placeholder",
             sizes:[{
-                size: req.body.size,
+                size: data.size,
                 inseams:[{
-                    image: "placeholder",
-                    inseam: req.body.inseam,
-                    price: req.body.price,
-                    stock: req.body.stock,
+                    inseam: data.inseam,
+                    price: data.price,
+                    stock: data.stock,
                 }]
             }]
         }

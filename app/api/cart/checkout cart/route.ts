@@ -3,13 +3,10 @@ var ProductModel = require('../../db');
 var CartModel = require('../../db');
 
 export async function POST(request: Request) {
-    const url = new URL(request.url);
-    // const res = await fetch(request)
-    // const url = await res.url;
-    const searchParams = new URLSearchParams(url.search);
+    const data = await request.json();
 
     const cart = await CartModel.findOne(
-        {userID: searchParams.get('userID')},
+        {userID: data.userID},
         { _id: 0, items: 1,  }
     );
     
@@ -33,7 +30,7 @@ export async function POST(request: Request) {
       
       //update cart status
       await CartModel.updateOne(
-          {"userID": request.body.userID},
+          {"userID": data.userID},
             {"paymentStatus": "started",
             "orderStatus": "ordered"
         })
