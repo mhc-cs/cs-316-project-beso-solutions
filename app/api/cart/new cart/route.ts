@@ -1,24 +1,33 @@
+const mongoose = require('mongoose');
 import {CartModel} from '../../db';
 
-let express = require('express'),
-    mongoose = require('mongoose'),
-    router = express.Router();
-
-router.post('/api/cart', (req, res) => {
+export async function POST(req: Request) {
+    const data = await req.json();
     const doc = new CartModel(    {
         _id: new mongoose.Types.ObjectId(),
-        userID: req.body.userID,
-        paymentStatus: req.body.paymentStatus, //client description of their product
-        orderStatus: req.body.orderStatus,//shirt, t shirt, 
+        userID: data.userID,
+        paymentStatus: data.paymentStatus, //client description of their product
+        orderStatus: data.orderStatus,//shirt, t shirt, 
         items:[{
-                    name: req.body.itemName,
-                    color: req.body.itemColor,
-                    size: req.body.itemSize,
-                    inseam: req.body.itemInseam,
-                    quantity: req.body.itemQuantity,
-                    price: req.body.itemPrice
+                    name: data.itemName,
+                    color: data.itemColor,
+                    size: data.itemSize,
+                    inseam: data.itemInseam,
+                    quantity: data.itemQuantity,
+                    price: data.itemPrice
                 }]
 
             })
-    doc.save();
-  });
+    try{
+        await doc.save();
+    }catch (error) {
+        return new Response(`Webhook error: ${error.message}`, {
+            status: 400,
+        })
+        }
+        console.log("HAPPY")
+
+        return new Response('Success!', {
+        status: 200,
+        })
+  }

@@ -1,12 +1,13 @@
 
 import {NextResponse} from 'next/server';
-var ProductModel = require('../db');
+import {ProductModel} from '../db';
 
 export async function POST(request: Request) {
+    const data = await request.json();
     await ProductModel.updateOne(
-        {"name": request.body.name, "colors.color": request.body.color,"colors.sizes.size": request.body.size},
-        { $inc: { "colors.$[k].sizes.$[i].inseams.$[j].stock": request.body.stockChng } },
-      { arrayFilters: [{"k.color": request.body.color},{ "i.size": request.body.size },{"j.inseam": request.body.inseam}] }
+        {"name": data.name, "colors.color": data.color,"colors.sizes.size": data.size},
+        { $inc: { "colors.$[k].sizes.$[i].inseams.$[j].stock": data.stockChng } },
+      { arrayFilters: [{"k.color": data.color},{ "i.size": data.size },{"j.inseam": data.inseam}] }
     )
 }
 
