@@ -1,5 +1,6 @@
 import {NextResponse} from 'next/server';
-var CartModel = require('../../db');
+import {CartModel} from '../../db';
+
 
 export async function POST(request: Request) {
     const data = await request.json();

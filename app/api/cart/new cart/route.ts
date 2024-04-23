@@ -1,8 +1,5 @@
 const mongoose = require('mongoose');
-var ProductModel = require('../db');
-var CartModel = require('../db');
-mongoose.connect('mongodb://localhost:27017/maindb', { useNewUrlParser: true});
-
+import {CartModel} from '../../db';
 
 export async function POST(req: Request) {
     const data = await req.json();

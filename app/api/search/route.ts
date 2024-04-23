@@ -1,5 +1,6 @@
 import {NextResponse} from 'next/server';
-var ProductModel = require('../db');
+import {ProductModel} from '../db';
+
 
 
 // Gets all language data from the DB

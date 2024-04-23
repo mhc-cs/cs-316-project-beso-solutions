@@ -1,6 +1,6 @@
 import {NextResponse} from 'next/server';
-var ProductModel = require('../../db');
-var ImageModel = require('../../db');
+import {ProductModel} from '../../db';
+import {ImageModel} from '../../db';
 
 export async function POST(request: Request) {
     const data = await request.json();
