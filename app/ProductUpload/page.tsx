@@ -11,6 +11,7 @@ import MenuCategory from '../components/MenuCategory';
 import MenuInseam from '../components/MenuInseam';
 import MenuColor from '../components/MenuColor';
 import Select from 'react-select'
+import Topnav from '../components/Topnav'
 
 
 export default function Page() {
@@ -44,21 +45,7 @@ export default function Page() {
   return (
   <div>
     <body>
-      <div className="topnav">
-
-        <Link href="Home">Home</Link>
-        <Link href="AboutUs">About Us</Link>
-        <Link href="Products">Products</Link>
-        <Link href="Shipping">Shipping</Link>
-        <Link href="Sizing">Sizing</Link>
-
-        <Link className="logo-image" href="Home"></Link>
-
-        <Link href="Cart" className="split">Cart</Link>
-        <Link href="Sign In" className="split">Sign In</Link>
-        <Link className="active" href="ProductUpload" className="split">Input New Products</Link>
-
-      </div>
+      <Topnav/>
 
       <div className="App">
         <header className="App-header"> 
