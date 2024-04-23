@@ -1,21 +1,21 @@
 import {NextResponse} from 'next/server';
-var ProductModel = require('../../db');
-var ImageModel = require('../../db');
+import {ProductModel} from '../../db';
+import {ImageModel} from '../../db';
 
 export async function POST(request: Request) {
-    
+    const data = await request.json();
     await ProductModel.updateOne(
-        {"name": request.body.name},
+        {"name": data.name},
         { "$push": 
             {"colors": 
                 {
-                "color": request.body.color,
+                "color": data.color,
                 "sizes":[{
-                        "size": request.body.size,
+                        "size": data.size,
                         "inseams": [{
-                            "ineseam": request.body.inseam,
-                            "price":request.body.prize, 
-                            "stock":request.body.stock
+                            "ineseam": data.inseam,
+                            "price":data.prize, 
+                            "stock":data.stock
                         }]
                     }]
                 }
