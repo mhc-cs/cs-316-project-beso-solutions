@@ -212,16 +212,19 @@ a {
   /* The image used */
   background-image: url("images/9-cropped-760x360.jpg");
   /* Full height */
-  height: 35%; 
+  height: 65%; 
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  Border-image: fill 0 linear-gradient(rgba(0, 0, 0, 0.064), #00000031);
 }
 
 /* center headings */
 h1 {
   text-align: center;
+  font-weight: 600;
+  font-size: 2.25em;
 }
 
 /** Make columns/cars *//* Create three equal columns that floats next to each other */

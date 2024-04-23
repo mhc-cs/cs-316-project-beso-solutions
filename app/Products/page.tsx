@@ -11,7 +11,8 @@ import MenuCategory from '../components/MenuCategory';
 import MenuInseam from '../components/MenuInseam';
 import MenuColor from '../components/MenuColor';
 import Select from 'react-select';
-import ProductList from '../components/ProductList'
+import ProductList from '../components/ProductList';
+import Footer from "../components/Footer";
 
 export default function Page() {
 
@@ -130,15 +131,8 @@ export default function Page() {
         </div>
         <div></div>
       </section>
-
-
       
-      <footer className="footer">
-        <ul>
-          <a className="text-footer">Copyright ©-All rights are reserved|</a>
-          <a>Social Media Here</a>
-        </ul>
-      </footer>
+      <Footer/>
 
     </body>
 
