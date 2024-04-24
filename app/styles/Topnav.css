@@ -18,7 +18,7 @@
 /* Style the topnav */
 .topnav {
   overflow: hidden;
-  background-color: #F5E9DD;
+  background-color: #000000;
   /*height: 60px; /* Full-height: remove this if you want "auto" height */
   width: 100%;/*160px; /* Set the width of the sidebar */
   position: fixed; /* Fixed topnav (stay in place on scroll) */
@@ -31,7 +31,7 @@
 .topnav a {
   float: left;
   display: block;
-  color: #000000;
+  color: #ffffff;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -45,14 +45,14 @@
 
 /* Add a color to the active/current link */
 .topnav a.active {
-  background-color: #b29475;
-  color: white;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
 }
 
 /* Create a right-aligned (split) link inside the navigation bar */
 .topnav a.split {
   float: right;
-  background-color: #b29475;;
+  background-color: #000000;;
   color: white;
 }
 .topnav a.split:hover {

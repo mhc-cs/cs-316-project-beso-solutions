@@ -45,7 +45,7 @@ export default function Page() {
   return (
   <div>
     <body>
-      <Topnav/>
+      <Topnav setActiveLink="products"/>
 
       <div className="App">
         <header className="App-header"> 
@@ -108,7 +108,7 @@ export default function Page() {
                     onChange={(e) => {setStock(e.target.value)}}
                   />
 
-                  <button type="submit">Submit</button>
+                  <button type="submit|reset">Submit</button>
               </form>
           </div>
         </header>
