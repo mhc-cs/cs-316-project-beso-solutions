@@ -97,10 +97,10 @@ export default function Page() {
               <a></a>
             </div>
           </div>
-          <ProductList products={products}/>
 
           <div className="main">
             <h1 className="main_heading">Products</h1>
+            <ProductList products={products}/>
             <div className="cards">
               <div className="cards_inner">
                 {products.map(product => (
