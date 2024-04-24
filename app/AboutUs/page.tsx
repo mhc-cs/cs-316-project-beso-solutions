@@ -21,7 +21,7 @@ export default function Page() {
   return (
   <div>
     <body>
-      <Topnav/>
+      <Topnav setActiveLink="about"/>
 
       <section>
         <h1>About Us</h1>

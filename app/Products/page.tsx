@@ -73,7 +73,7 @@ export default function Page() {
   <div>
     <body>
 
-      <Topnav/>
+      <Topnav setActiveLink="products"/>
 
       <section>
         <div className="row">

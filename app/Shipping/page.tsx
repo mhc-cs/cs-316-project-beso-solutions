@@ -14,7 +14,7 @@ export default function Page() {
   return (
   <div>
     <body>
-      <Topnav/>
+      <Topnav setActiveLink="shipping"/>
 
       <section>
         <h1>Shipping Details</h1>

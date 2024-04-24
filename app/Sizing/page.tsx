@@ -14,7 +14,7 @@ export default function Page() {
   return (
   <div>
     <body>
-      <Topnav/>
+      <Topnav setActiveLink="sizing"/>
 
       <section>
         <h1>Sizing Details</h1>
