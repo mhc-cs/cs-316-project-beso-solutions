@@ -17,11 +17,13 @@ import Topnav from "../components/TopnavProduct"
 
 export default function Page() {
 
-  let [products, getProducts] = useState([]);
+  let [products, setProducts] = useState<any[]>([]);
   let [selectedCategory, setSelectedCategory] = useState("");
   let [selectedSize, setSelectedSize] = useState("");
   let [selectedInseam, setSelectedInseam] = useState("");
   let [selectedColor, setSelectedColor] = useState("");
+
+  let allProducts: any[];
   
   const url = 'http://cs-vm-06.cs.mtholyoke.edu:31600/api/';
 
@@ -42,7 +44,7 @@ export default function Page() {
     axios.get(`${url}search`, { params: queryParams })
     .then((response) => {
       const allProducts = response.data.products.allProducts;
-      getProducts(allProducts);
+      setProducts(allProducts);
     })
     .catch(error => console.error(`Error: ${error}`));
   }
@@ -50,24 +52,19 @@ export default function Page() {
   // Callback function to receive selected category from MenuCategory
   const handleCategorySelect = (category:string) => {
     setSelectedCategory(category);
-    selectedCategory = category;
   }
   // Callback function to receive selected category from MenuSize
   const handleSizeSelect = (size:string) => {
     setSelectedSize(size);
-    selectedSize = size;
   }
   // Callback function to receive selected category from MenuInseam
   const handleInseamSelect = (inseam:string) => {
     setSelectedInseam(inseam);
-    selectedInseam = inseam;
   }
   // Callback function to receive selected category from MenuColor
   const handleColorSelect = (color:string) => {
     setSelectedColor(color);
-    selectedColor = color;
   }
-
   // Function to handle update button click
   const handleUpdateButtonClick = () => {
     getAllProducts(); // Fetch products based on selected criteria
