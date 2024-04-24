@@ -53,7 +53,7 @@ export default function Page() {
         <table id="sizing">
           <tr>
             <th>Jean Size (W)</th>
-            <th>US Misses Size</th>
+            <th>US Size</th>
             <th>International Size</th>
             <th>Waist (inches)</th>
             <th>Hip (inches)</th>

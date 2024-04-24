@@ -17,11 +17,11 @@ import Topnav from "../components/TopnavProduct"
 
 export default function Page() {
 
-  const [products, getProducts] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState("");
-  const [selectedSize, setSelectedSize] = useState("");
-  const [selectedInseam, setSelectedInseam] = useState("");
-  const [selectedColor, setSelectedColor] = useState("");
+  let [products, getProducts] = useState([]);
+  let [selectedCategory, setSelectedCategory] = useState("");
+  let [selectedSize, setSelectedSize] = useState("");
+  let [selectedInseam, setSelectedInseam] = useState("");
+  let [selectedColor, setSelectedColor] = useState("");
   
   const url = 'http://cs-vm-06.cs.mtholyoke.edu:31600/api/';
 
@@ -48,20 +48,24 @@ export default function Page() {
   }
 
   // Callback function to receive selected category from MenuCategory
-  const handleCategorySelect = (category) => {
+  const handleCategorySelect = (category:string) => {
     setSelectedCategory(category);
+    selectedCategory = category;
   }
   // Callback function to receive selected category from MenuSize
-  const handleSizeSelect = (size) => {
+  const handleSizeSelect = (size:string) => {
     setSelectedSize(size);
+    selectedSize = size;
   }
   // Callback function to receive selected category from MenuInseam
-  const handleInseamSelect = (inseam) => {
+  const handleInseamSelect = (inseam:string) => {
     setSelectedInseam(inseam);
+    selectedInseam = inseam;
   }
   // Callback function to receive selected category from MenuColor
-  const handleColorSelect = (color) => {
+  const handleColorSelect = (color:string) => {
     setSelectedColor(color);
+    selectedColor = color;
   }
 
   // Function to handle update button click
@@ -103,11 +107,11 @@ export default function Page() {
             <div className="cards">
               <div className="cards_inner">
                 {products.map(product => (
-                  <div className="card" key={product.id}>
-                    <img src={product.image} alt={product.name} />
-                    <h1>{product.name}</h1>
-                    <p className="price">${product.price}</p>
-                    <p>{product.description}</p>
+                  <div className="card" key={product["id"]}>
+                    {/*<img src={product.image} alt={product.name} />*/}
+                    <h1>{product["name"]}</h1>
+                    <p className="price">${product["price"]}</p>
+                    <p>{product["description"]}</p>
                   </div>
                 ))}
               </div>

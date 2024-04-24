@@ -27,29 +27,41 @@ export default function Page() {
   const [stock, setStock] = useState("")
 
   const handleSubmit = (e) => {
-      e.preventDefault();
-    
-      axios.post('http://cs-vm-06.cs.mtholyoke.edu:31600/api/upload', {
-          name: name,
-          description: description,
-          category: category,
-          material: material,
-          color: color,
-          size: size,
-          inseam: inseam,
-          price: price,
-          stock: stock,
-      })
+    e.preventDefault();
+  
+    axios.post('http://cs-vm-06.cs.mtholyoke.edu:31600/api/upload', {
+        name: name,
+        description: description,
+        category: category,
+        material: material,
+        color: color,
+        size: size,
+        inseam: inseam,
+        price: price,
+        stock: stock,
+    })
+    .then(() => {
+      // Reset form fields
+      setName("");
+      setDescription("");
+      setCategory("");
+      setMaterial("");
+      setColor("");
+      setSize("");
+      setInseam("");
+      setPrice("");
+      setStock("");
+    })
   }
 
   return (
   <div>
-    <body>
+    <body className="product-bg">
       <Topnav setActiveLink="products"/>
 
       <div className="App">
         <header className="App-header"> 
-          <div className="logIn-form">
+          <div className="product-form">
               <form onSubmit={handleSubmit}>
                   <p>Input New Products</p>
                     
@@ -108,7 +120,7 @@ export default function Page() {
                     onChange={(e) => {setStock(e.target.value)}}
                   />
 
-                  <button type="submit|reset">Submit</button>
+                  <button type="submit">Submit</button>
               </form>
           </div>
         </header>
