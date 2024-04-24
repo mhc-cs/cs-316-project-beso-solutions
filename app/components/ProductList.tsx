@@ -30,6 +30,7 @@ const ProductList: React.FC<ProductListProps> = ({ products }) => {
     <div>
         {/* Render your list of products here */}
         <div className="product-list">
+            <p>hellohelloheloo</p>
             {products.map(product => (
                 <div className="product" key={product.id}>
                 <h3>{product.name}</h3>

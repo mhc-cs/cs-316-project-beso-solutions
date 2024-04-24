@@ -19,7 +19,6 @@ export default async function Page() {
   return (
   <div>
     <body>
-
       <Topnav setActiveLink="home"/>
 
       <div className="bg-container">
