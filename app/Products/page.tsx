@@ -18,7 +18,7 @@ import Topnav from "../components/TopnavProduct"
 export default function Page() {
 
   let [products, setProducts] = useState<any[]>([]);
-  let [selectedCategory, setSelectedCategory] = useState("");
+  let [selectedCategory, setSelectedCategory] = useState("jeans");
   let [selectedSize, setSelectedSize] = useState("");
   let [selectedInseam, setSelectedInseam] = useState("");
   let [selectedColor, setSelectedColor] = useState("");
@@ -43,8 +43,9 @@ export default function Page() {
 
     axios.get(`${url}search`, { params: queryParams })
     .then((response) => {
-      const allProducts = response.data.products.allProducts;
-      setProducts(allProducts);
+      //const allProducts = response.data.products.allProducts;
+      //setProducts(allProducts);
+      setProducts(response.data.products.allProducts)
     })
     .catch(error => console.error(`Error: ${error}`));
   }
