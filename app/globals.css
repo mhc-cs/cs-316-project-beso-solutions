@@ -116,7 +116,8 @@ a {
 }
 .footer {
   overflow: hidden;
-  background-color: #F5E9DD;
+  background-color: #000000;
+  color: white;
   text-align: center;
   /*padding: 10px;*/
 
@@ -130,20 +131,20 @@ a {
 /* Style the topnav */
 .topnav {
   overflow: hidden;
-  background-color: #F5E9DD;
+  background-color: #000000;
   /*height: 60px; /* Full-height: remove this if you want "auto" height */
   width: 100%;/*160px; /* Set the width of the sidebar */
   position: fixed; /* Fixed topnav (stay in place on scroll) */
   top:0;
   left:0;
-  z-index: 1; 
+  z-index: 1;
 }
 
 /* topnav links */
 .topnav a {
   float: left;
   display: block;
-  color: #000000;
+  color: #ffffff;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -151,25 +152,25 @@ a {
 }
 
 .topnav a:hover {
-  background-color: #caaf94;
-  color: #000000;
+  background-color: #626262;
+  color: #ffffff;
 }
 
 /* Add a color to the active/current link */
 .topnav a.active {
-  background-color: #b29475;
-  color: white;
+  background-color: #ffffffec;
+  color: rgb(0, 0, 0);
 }
 
 /* Create a right-aligned (split) link inside the navigation bar */
 .topnav a.split {
   float: right;
-  background-color: #b29475;;
-  color: white;
+  background-color: #6b6b6b;;
+  color: rgb(255, 255, 255);
 }
 .topnav a.split:hover {
-  background-color: #c5aa8f;;
-  color: white;
+  background-color: #626262;
+  color: #ffffff;
 }
 
 .logo-image{
@@ -208,16 +209,29 @@ a {
 }
 
 /* background image */
+.bg-container {
+  position: relative; /* Ensure relative positioning for the container */
+}
 .bg {
   /* The image used */
-  background-image: url("images/9-cropped-760x360.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("images/Banner.jpg");
   /* Full height */
-  height: 65%; 
+  /*height: 80%;*/
+  aspect-ratio: 16/9; 
+  width: 100%;
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   Border-image: fill 0 linear-gradient(rgba(0, 0, 0, 0.064), #00000031);
+}
+.bg-text{
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
 }
 
 /* center headings */
@@ -267,6 +281,7 @@ img {
   max-width: 75rem;
   padding: 3em 1.5em;
   position: center;
+  justify-content: center;
 }
 .main_heading{
   font-weight: 600;
@@ -488,49 +503,71 @@ img {
   background-color: #3e8e41;
 }
 
-.logIn-form {
+.product-form {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin: 50px auto 100px auto;
-  width: 90%;
+  width: 60%;
   height: auto;
-  background-color: #F5E9DD;
+  background-color: black;
   border-radius: 10px;
+  border: 1px solid #050066;
 }
 
-.logIn-form p {
+.product-form p {
   text-align: center;
   font-size: 25px;
   font-weight: 600;
-  color: #0a0a0a;
+  color: white;
   padding: 10px 10px;
 }
 
-.logIn-form input {
+.product-form input {
   display: block;
   width: 80%;
   height: 40px;
   margin: 10px auto;
-  border: 1px solid #ccc;
+  border: 1px solid #050066;
   border-radius: 5px;
   padding: 0 10px;
   font-size: 16px;
   color: black;
 }
 
-.logIn-form button {
-  background-color: #b29475;
+.product-form button {
+  background-color: #050066;/*#b29475;*/
   color: white;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 20px;
   border-radius:7px;
-  padding: 5px 10px;
-  border: none;
+  padding: 20px;/*5px 10px;*/
+  /*border: none;*/
   width: 100%;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
 }
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.logIn-form button:hover {
+/*.product-form button:hover {
   opacity: 0.7;
+}*/
+.product-form button:after {
+  content: "";
+  background: #226ad5;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px!important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s
+}
+
+.product-form button:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
 }
 
 /*table {
@@ -545,6 +582,29 @@ th, td {
   padding: 16px;
 }
 */
+
+.product-bg{
+  background-image: url(https://media.giphy.com/media/U3qYN8S0j3bpK/giphy.gif);
+}
+
+.shipping-bg{
+  background-image: url("images/shipping.png");
+}
+.container{
+  position: relative;
+  top: 60%;
+  background: rgba(0, 0, 0, 0.5);
+}
+.textBlock {
+  position: absolute;
+  bottom: 20px;
+  right: 70px;
+  left: 70px;
+  background-color: rgba(0, 0, 0, 0.599);;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+}
 
 table {
   border-collapse: collapse;

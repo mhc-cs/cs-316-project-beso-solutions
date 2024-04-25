@@ -70,12 +70,10 @@ export default function Page() {
     axios.get(`${url}search`, { params: paramsQ })
     .then((response) => {
       const allProducts = response.data.products.allProducts;
-      getProducts(allProducts);
+      setProducts(allProducts);
     })
     .catch(error => console.error(`Error: ${error}`));
   }
-
-
 
   // Function to handle update button click
   const handleUpdateButtonClick = () => {
@@ -86,7 +84,7 @@ export default function Page() {
   <div>
     <body>
 
-      <Topnav/>
+      <Topnav setActiveLink="products"/>
 
       <section>
       <div>
@@ -123,18 +121,18 @@ export default function Page() {
               <a></a>
             </div>
           </div>
-          <ProductList products={products}/>
 
           <div className="main">
             <h1 className="main_heading">Products</h1>
+            <ProductList products={products}/>
             <div className="cards">
               <div className="cards_inner">
                 {products.map(product => (
-                  <div className="card" key={product.id}>
-                    <img src={product.image} alt={product.name} />
-                    <h1>{product.name}</h1>
-                    <p className="price">${product.price}</p>
-                    <p>{product.description}</p>
+                  <div className="card" key={product["id"]}>
+                    {/*<img src={product.image} alt={product.name} />*/}
+                    <h1>{product["name"]}</h1>
+                    <p className="price">${product["price"]}</p>
+                    <p>{product["description"]}</p>
                   </div>
                 ))}
               </div>
