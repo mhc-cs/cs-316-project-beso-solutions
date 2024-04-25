@@ -554,7 +554,7 @@ th, td {
   color: white;
 }
 .landing-bg-container{
-  position: relative;
+  position: fill;
 }
 .landing-bg{
   /* The image used */
