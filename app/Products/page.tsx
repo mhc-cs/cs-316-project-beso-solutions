@@ -69,8 +69,9 @@ export default function Page() {
 
     axios.get(`${url}search`, { params: paramsQ })
     .then((response) => {
-      const allProducts = response.data.products.allProducts;
-      setProducts(allProducts);
+      //const allProducts = response.data.products.allProducts;
+      //setProducts(allProducts);
+      setProducts(response.data.products.allProducts)
     })
     .catch(error => console.error(`Error: ${error}`));
   }

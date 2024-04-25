@@ -37,7 +37,7 @@ export default function Page() {
             </p>
           </div>
           <div className="column2">
-            <Image src="/app/images/Missi.jpg" alt="MISSI" width={500} height={500} />
+            <Image src="../images/Missi.jpg" alt="MISSI" width={500} height={500} />
           </div>
         </div>
       </section>
