@@ -83,29 +83,62 @@ export default function Page() {
 
   return (
   <div>
-    <body>
-
+    <header>
       <Topnav setActiveLink="products"/>
+    </header>
+    <body style={{paddingTop: '50px'}}>
+      <h1 style={{textAlign:'center'}}>Products</h1>
 
       <section>
-      <div>
-        <select value={testValue} onChange={handleTestSelect}>
-            <option value="Jean">Jean</option>
-            <option value="Shirt">Shirt</option>
-            <option value="Cargo">Cargo</option>
-        </select>
-        <p>{`You selected ${testValue}`}</p>
-
-        </div>
         <div className="row">
           <div className="column30">
             <div className="sidenav">
-              <a>Filter</a>
+              <a>Filter Products</a>
+              <select style={{}} value={testValue} onChange={handleTestSelect}>
+                <option value="">Select Category...</option>
+                <option value="jean">Jeans</option>
+                <option value="short">Shorts</option>
+                <option value="cargo">Cargo</option>
+              </select>
+              {/*<p>{`You selected ${testValue}`}</p>*/}
+              <select value={selectedSize} onChange={handleSizeSelect}>
+                <option value="">Select Size...</option>
+                <option value="00">00</option>
+                <option value="0">0</option>
+                <option value="2">2</option>
+                <option value="4">4</option>
+                <option value="6">6</option>
+                <option value="8">8</option>
+                <option value="10">10</option>
+                <option value="12">12</option>
+                <option value="14">14</option>
+                <option value="16">16</option>
+                <option value="18">18</option>
+                <option value="20">20</option>
+              </select>
+              {/*<p>{`You selected ${selectedSize}`}</p>*/}
+              <select value={selectedColor} onChange={handleColorSelect}>
+                <option value="">Select Color...</option>
+                <option value="dark wash">dark wash</option>
+                <option value="light wash">light wash</option>
+                <option value="med wash">medium wash</option>
+              </select>
+              {/*<p>{`You selected ${selectedColor}`}</p>*/}
+              <select value={selectedInseam} onChange={handleInseamSelect}>
+                <option value="">Select Inseam...</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+              </select>
+              {/*<p>{`You selected ${selectedInseam}`}</p>*/}
+              <button onClick={handleUpdateButtonClick}>Update Products</button>
 
-              <div className="app">
+              {/* <div className="app">
 
                 {/* Pass handle__Select as a prop to Menu-- */}
-                <MenuCategory onSelect={handleCategorySelect}/>
+                {/*<MenuCategory onSelect={handleCategorySelect}/>
                 <p>{`You selected ${selectedCategory}`}</p>
                 <MenuSize onSelect={handleSizeSelect}/>
                 <p>{`You selected ${selectedSize}`}</p>
@@ -117,14 +150,13 @@ export default function Page() {
                 <a></a>
 
                 {/* Button to update products */}
-                <button onClick={handleUpdateButtonClick}>Update Products</button>
-              </div>
+                {/*<button onClick={handleUpdateButtonClick}>Update Products</button>
+              </div>*/}
               <a></a>
             </div>
           </div>
 
           <div className="main">
-            <h1 className="main_heading">Products</h1>
             <ProductList products={products}/>
             <div className="cards">
               <div className="cards_inner">

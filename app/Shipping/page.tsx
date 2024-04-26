@@ -18,17 +18,17 @@ export default function Page() {
 
       <section className="container">
         <div className="textBlock">
-          <h1>Shipping Details</h1>
-          <p>
+          <h1 style={{color: 'white', textShadow: '1px 1px 2px black', paddingTop: '60px'}}>Shipping Details</h1>
+          <p style={{color: 'white', textShadow: '1px 1px 2px black'}}>
             Shipping typically takes 3-5 business days. Estimated number of business days it takes 
             until you will receive your order after placing it on the website. 
             Business days do not include Saturdays, Sundays, or US holidays. 
             This time includes processing and in-transit time for your order. 
           </p>
-          <p>
+          <p style={{color: 'white', textShadow: '1px 1px 2px black'}}>
             For certain extended delivery zip codes, the order may arrive outside of the estimated timeframe. 
           </p>
-          <p>
+          <p style={{color: 'white', textShadow: '1px 1px 2px black'}}>
             During holiday periods and certain promotional events, customers can expect an additional 3-5 days of processing time.
           </p>
         </div>
