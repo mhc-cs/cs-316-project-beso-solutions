@@ -19,16 +19,12 @@ import test from "node:test";
 export default function Page() {
 
   const [products, getProducts] = useState([]);
-  const [testValue, setValue] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedSize, setSelectedSize] = useState("");
   const [selectedInseam, setSelectedInseam] = useState("");
   const [selectedColor, setSelectedColor] = useState("");
 
-    // Callback function to receive selected category from MenuCategory
-    const handleTestSelect = (e) => {
-        setValue(e.target.value);
-    }
+
     // Callback function to receive selected category from MenuCategory
     const handleCategorySelect = (e) => {
         setSelectedCategory(e.target.value);
@@ -90,13 +86,36 @@ export default function Page() {
 
       <section>
       <div>
-        <select value={testValue} onChange={handleTestSelect}>
+        
+        <select value={selectedCategory} onChange={handleCategorySelect}>
+            <option value=""></option>
             <option value="Jean">Jean</option>
             <option value="Shirt">Shirt</option>
             <option value="Cargo">Cargo</option>
         </select>
-        <p>{`You selected ${testValue}`}</p>
-
+        <p>{`You selected ${selectedCategory}`}</p>
+        <select value={selectedSize} onChange={handleSizeSelect}>
+            <option value=""></option>
+            <option value="00">00</option>
+            <option value="01">01</option>
+            <option value="02">02</option>
+        </select>
+        <p>{`You selected ${selectedSize}`}</p>
+        <select value={selectedColor} onChange={handleColorSelect}>
+            <option value=""></option>
+            <option value="dark wash">dark wash</option>
+            <option value="light wash">light wash</option>
+            <option value="med wash">med wash</option>
+        </select>
+        <p>{`You selected ${selectedColor}`}</p>
+        <select value={selectedInseam} onChange={handleInseamSelect}>
+            <option value=""></option>
+            <option value="28">28</option>
+            <option value="29">29</option>
+            <option value="30">30</option>
+        </select>
+        <p>{`You selected ${selectedInseam}`}</p>
+        <button onClick={handleUpdateButtonClick}>Update Products</button>
         </div>
         <div className="row">
           <div className="column30">
