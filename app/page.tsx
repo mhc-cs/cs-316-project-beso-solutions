@@ -20,7 +20,7 @@ export default async function Page() {
   <div>
     <body>
 
-      <Topnav/>
+      <Topnav setActiveLink="home"/>
 
       <div className="bg"></div>
 

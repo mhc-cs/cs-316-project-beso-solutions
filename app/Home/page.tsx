@@ -19,10 +19,16 @@ export default async function Page() {
   return (
   <div>
     <body>
+      <Topnav setActiveLink="home"/>
 
-      <Topnav/>
-
-      <div className="bg"></div>
+      <div className="bg-container">
+        <div className="bg">
+          <div className="bg-text">
+            <h1>Missi Petite</h1>
+            <p>Clothing for Petite Women</p>
+          </div>
+        </div>
+      </div>
 
       <div className="main">
         <h1 className="main_heading">Products New In</h1>
