@@ -18,33 +18,53 @@ export default async function Page() {
 
   return (
   <div>
+    <header><Topnav setActiveLink="home"/></header>
     <body>
-      <Topnav setActiveLink="home"/>
+      {/*<Topnav setActiveLink="home"/>*/}
 
       <div className="bg-container">
         <div className="bg">
           <div className="bg-text">
-            <h1>Missi Petite</h1>
-            <p>Clothing for Petite Women</p>
+            <h1 style={{color: 'white', textShadow: '1px 1px 2px black'}}>Missi Petite</h1>
+            <p style={{color: 'white', textShadow: '1px 1px 2px black', textAlign:'center'}}>Clothing for Petite Women</p>
           </div>
         </div>
       </div>
 
+      <h1>Products New In</h1>
       <div className="main">
-        <h1 className="main_heading">Products New In</h1>
         <div className="cards">
           <div className="cards_inner">
             <div className="card">
-              <img src="images/IMG_6339.jpg" alt="Denim Jeans"></img>
+              <h1>Tailored Jeans 1</h1>
+              <p className="price">$19.99</p>
+              <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+              <p><button>Add to Cart</button></p>
+            </div>
+            <div className="card">
               <h1>Tailored Jeans 2</h1>
               <p className="price">$19.99</p>
               <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-              
+              <p><button>Add to Cart</button></p>
             </div>
-            <div className="card">Product 2</div>
-            <div className="card">Product 3</div>
-            <div className="card">Product 4</div>
-            <div className="card">Product 5</div>
+            <div className="card">
+              <h1>Tailored Jeans 3</h1>
+              <p className="price">$19.99</p>
+              <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+              <p><button>Add to Cart</button></p>
+            </div>
+            <div className="card">
+              <h1>Tailored Jeans 4</h1>
+              <p className="price">$19.99</p>
+              <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+              <p><button>Add to Cart</button></p>
+            </div>
+            <div className="card">
+              <h1>Tailored Jeans 5</h1>
+              <p className="price">$19.99</p>
+              <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+              <p><button>Add to Cart</button></p>
+            </div>
           </div>
         </div>
       </div>

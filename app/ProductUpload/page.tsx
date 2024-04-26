@@ -56,7 +56,7 @@ export default function Page() {
 
   return (
   <div>
-    <body className="product-bg">
+    <body className="product-upload-bg">
       <Topnav setActiveLink="products"/>
 
       <div className="App">

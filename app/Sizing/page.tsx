@@ -13,12 +13,12 @@ export default function Page() {
 
   return (
   <div>
-    <body>
+    <body className="sizing-bg">
       <Topnav setActiveLink="sizing"/>
 
       <section>
-        <h1>Sizing Details</h1>
-        <p>
+        <h1 style={{color: 'white', textShadow: '1px 1px 2px black', paddingTop: '60px'}}>Sizing Details</h1>
+        <p style={{color: 'white', textShadow: '1px 1px 2px black', textAlign:'center'}}>
             Our sizes will be based on US sizes as per the chart ranging from 00-20.
         </p>
         <p></p>

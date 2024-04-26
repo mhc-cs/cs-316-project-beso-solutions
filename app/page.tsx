@@ -23,7 +23,7 @@ export default async function Page() {
           <div className="landing-bg-text">
             <h1>Missi Petite</h1>
             <p>Clothing for Petite Women</p>
-            <button>Shop Now</button>
+            <a href="/Home"><button>Shop Now</button></a>
           </div>
         </div>
       </div>
