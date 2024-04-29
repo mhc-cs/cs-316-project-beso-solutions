@@ -12,6 +12,7 @@ import MenuInseam from '../components/MenuInseam';
 import MenuColor from '../components/MenuColor';
 import Select from 'react-select'
 import Topnav from '../components/TopnavProduct'
+import Footer from "../components/Footer";
 
 
 export default function Page() {
@@ -126,6 +127,8 @@ export default function Page() {
           </div>
         </header>
       </div>
+      
+      <Footer/>
 
       <footer className="footer">
         <ul>
