@@ -24,7 +24,7 @@ export default function Page() {
       <Topnav setActiveLink="about"/>
 
       <section>
-        <h1 style={{ color: 'white' }}>About Us</h1>
+        <h1 style={{ color: 'white', paddingTop:'75px'}}>About Us</h1>
         <div className="row">
           <div className="column2">
             <p style={{ color: 'white' }}>MISSI is a premier US clothing brand dedicated to catering to petite women with 

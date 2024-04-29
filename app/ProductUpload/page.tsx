@@ -11,7 +11,8 @@ import MenuCategory from '../components/MenuCategory';
 import MenuInseam from '../components/MenuInseam';
 import MenuColor from '../components/MenuColor';
 import Select from 'react-select'
-import Topnav from '../components/Topnav'
+import Topnav from '../components/TopnavProduct'
+import Footer from "../components/Footer";
 
 
 export default function Page() {
@@ -52,69 +53,70 @@ export default function Page() {
       setPrice("");
       setStock("");
     })
+
   }
 
   return (
   <div>
     <body className="product-upload-bg">
-      <Topnav setActiveLink="products"/>
+      <Topnav setActiveLink="productsUpload"/>
 
-      <div className="App">
+      <div className="App" style={{marginTop:'80px'}}>
         <header className="App-header"> 
           <div className="product-form">
               <form onSubmit={handleSubmit}>
                   <p>Input New Products</p>
                     
                   <input
-                    className = "Name"
+                    id = "Name"
                     type="text"
                     placeholder="Product name ..."
                     onChange={(e) => {setName(e.target.value)}}
                   />
                   <input 
-                    className = "Description"
+                    id = "Description"
                     type="text"
                     placeholder = "Description...."
                     onChange={(e) => {setDescription(e.target.value)}}
                   />
                   <input 
-                    className = "Category"
+                    id = "Category"
                     type="text"
                     placeholder = "Category...."
                     onChange={(e) => {setCategory(e.target.value)}}
                   />
                   <input 
-                    className = "Material"
+                    id = "Material"
                     type="text"
                     placeholder = "Material...."
                     onChange={(e) => {setMaterial(e.target.value)}}
                   />
                   <input 
-                    className = "Color"
+                    id = "Color"
                     type="text"
                     placeholder = "Color...."
                     onChange={(e) => {setColor(e.target.value)}}
                   />
                   <input 
-                    className = "Size"
+                    id = "Size"
                     type="text"
                     placeholder = "Size...."
                     onChange={(e) => {setSize(e.target.value)}}
                   />
                   <input 
-                    className = "Inseam"
+                    id = "Inseam"
                     type="text"
                     placeholder = "Inseam...."
                     onChange={(e) => {setInseam(e.target.value)}}
                   />
                   <input 
-                    className = "Price"
+                    id = "Price"
                     type="text"
                     placeholder = "Price...."
                     onChange={(e) => {setPrice(e.target.value)}}
                   />
                   <input 
-                    className = "Stock"
+                    id = "Stock"
                     type="text"
                     placeholder = "Stock...."
                     onChange={(e) => {setStock(e.target.value)}}
@@ -125,6 +127,8 @@ export default function Page() {
           </div>
         </header>
       </div>
+      
+      <Footer/>
 
       <footer className="footer">
         <ul>
