@@ -13,7 +13,7 @@ import MenuColor from '../components/MenuColor';
 import Select from 'react-select';
 import ProductList from '../components/ProductList';
 import Footer from "../components/Footer";
-import Topnav from "../components/TopnavProduct"
+import Topnav from "../components/TopnavProduct";
 import test from "node:test";
 
 export default function Page() {
