@@ -1,11 +1,11 @@
 import {NextResponse} from 'next/server';
 import {ProductModel} from '../db';
 
+// mongoose.connect('mongodb://localhost:27017/maindb', { useNewUrlParser: true});
 
 // Gets all language data from the DB
 export async function GET(request: Request) {
     console.log('HELLO')
-    console.log(request)
     console.log(request.url)
     //https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams/URLSearchParams
     const url = new URL(request.url);
@@ -19,14 +19,16 @@ export async function GET(request: Request) {
             {"colors.sizes.inseams.stock":{$gt:4}}
             );
         
-        return NextResponse.json(results || {});
+        console.log(results)
+            return NextResponse.json(results || {});
     }
     if (searchParams.get('color') == ''&& searchParams.get('size') == ''&& searchParams.get('inseam') == ''){
         const results = await ProductModel.find(
             {category: searchParams.get('category'),"colors.sizes.inseams.stock":{$gt:4}}
             );
         
-        return NextResponse.json(results || {});
+        console.log(results)
+            return NextResponse.json(results || {});
     }else if (searchParams.get('color')==''){  
         if (searchParams.get('size')==''){//cat,...
             if (searchParams.get('inseam')==''){//cat
@@ -34,13 +36,15 @@ export async function GET(request: Request) {
                     {category: searchParams.get('category'),"colors.sizes.inseams.stock":{$gt:4}}
                     );
                 
-                return NextResponse.json(results || {});
+                console.log(results)
+                    return NextResponse.json(results || {});
             }else{//cat,inseam
                 const results = await ProductModel.find(
                     {category: searchParams.get('category'), 
                     "colors.sizes.inseams.inseam":searchParams.get('inseam'),
                     "colors.sizes.inseams.stock":{$gt:4}}
                 );
+                console.log(results)
                 return NextResponse.json(results || {});
             }
         }
@@ -50,6 +54,7 @@ export async function GET(request: Request) {
                 "colors.sizes.size":searchParams.get('size'),
                 "colors.sizes.inseams.stock":{$gt:4}}
             );
+            console.log(results)
             return NextResponse.json(results || {});
         }
         //cat, size, inseam
@@ -59,6 +64,7 @@ export async function GET(request: Request) {
             "colors.sizes.inseams.inseam":searchParams.get('inseam'),
             "colors.sizes.inseams.stock":{$gt:4}}
         );
+        console.log(results)
         return NextResponse.json(results || {});
         
     }else{//cat, color,...
@@ -69,6 +75,7 @@ export async function GET(request: Request) {
                     "colors.color":searchParams.get('color'),
                     "colors.sizes.inseams.stock":{$gt:4}}
                 );
+                console.log(results)
                 return NextResponse.json(results || {});
             }else{ //cat, color, inseam
                 const results = await ProductModel.find(
@@ -77,6 +84,7 @@ export async function GET(request: Request) {
                     "colors.sizes.inseams.inseam":searchParams.get('inseam'),
                     "colors.sizes.inseams.stock":{$gt:4}}
                 );
+                console.log(results)
                 return NextResponse.json(results || {});
             }
         }else{//cat, color, size, ..
@@ -87,6 +95,7 @@ export async function GET(request: Request) {
                     "colors.sizes.size":searchParams.get('size'),
                     "colors.sizes.inseams.stock":{$gt:4}}
                 );
+                console.log(results)
                 return NextResponse.json(results || {});
             }else{ //cat, color, size, inseam
                 const results = await ProductModel.find(
@@ -96,6 +105,7 @@ export async function GET(request: Request) {
                     "colors.sizes.inseams.inseam":searchParams.get('inseam'),
                     "colors.sizes.inseams.stock":{$gt:4}}
                 );
+                console.log(results)
                 return NextResponse.json(results || {});
             }
         }

@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 import {ProductModel} from '../db';
 
+mongoose.connect('mongodb://localhost:27017/maindb', { useNewUrlParser: true});
+
 export async function POST(req: Request) {
     const data = await req.json();
     const productDoc = new ProductModel({
