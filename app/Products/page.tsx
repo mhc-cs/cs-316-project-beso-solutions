@@ -94,7 +94,7 @@ export default function Page() {
           <div className="column30">
             <div className="sidenav">
               <a>Filter Products</a>
-              <select style={{}} value={testValue} onChange={handleTestSelect}>
+              <select style={{}} value={testValue} onChange={handleCategorySelect}>
                 <option value="">Select Category...</option>
                 <option value="jean">Jeans</option>
                 <option value="short">Shorts</option>
