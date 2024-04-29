@@ -16,6 +16,8 @@ import Footer from "../components/Footer";
 import Topnav from "../components/Topnav";
 import test from "node:test";
 
+<link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.min.css"/>
+
 export default function Page() {
 
     return (
@@ -34,7 +36,7 @@ export default function Page() {
                                     <div className="col-50">
                                         <h3>Billing Address</h3>
 
-                                        <label id="fname">Full Name</label>
+                                        <label id="fname"><span className="fa fa-user"></span>Full Name</label>
                                         <input type="text" id="fname" name="firstname" placeholder="John M. Doe"></input>
                                         
                                         <label id="email">Email</label>
