@@ -2,8 +2,12 @@ import mongoose from 'mongoose';
 const { Schema } = mongoose;
 mongoose.Promise = global.Promise;
 // Connect to the database
+try {
+    mongoose.connect('mongodb://localhost:27017/maindb', { useNewUrlParser: true});
+} catch (error) {
+    console.log("re-connect error")
+}
 
-// mongoose.connect('mongodb://localhost:27017/maindb', { useNewUrlParser: true});
 
 // const productCategories = ['shirt', 't-shirt', 'shorts', 'jeans']
 const orderStatuses = ['not started','ordered', 'shipped', 'delivered', 'failed']
@@ -63,6 +67,7 @@ const CartSchema = new Schema({
                 price: Number
             }]
 });
+
 
 export const ImageModel = mongoose.model ('images', ImageSchema);
 
