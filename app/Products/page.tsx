@@ -71,7 +71,7 @@ export default function Page() {
     .then((response) => {
       //const allProducts = response.data.products.allProducts;
       //setProducts(allProducts);
-      setProducts(response.data.products.allProducts)
+      getProducts(response.data.products.allProducts)
     })
     .catch(error => console.error(`Error: ${error}`));
   }
@@ -94,7 +94,7 @@ export default function Page() {
           <div className="column30">
             <div className="sidenav">
               <a>Filter Products</a>
-              <select style={{}} value={testValue} onChange={handleCategorySelect}>
+              <select style={{}} value={selectedCategory} onChange={handleCategorySelect}>
                 <option value="">Select Category...</option>
                 <option value="jean">Jeans</option>
                 <option value="short">Shorts</option>
@@ -133,7 +133,7 @@ export default function Page() {
                 <option value="30">30</option>
               </select>
               {/*<p>{`You selected ${selectedInseam}`}</p>*/}
-              <button onClick={handleUpdateButtonClick}>Update Products</button>
+              <button onClick={handleUpdateButtonClick}>Search</button>
 
               {/* <div className="app">
 
