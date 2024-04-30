@@ -65,74 +65,22 @@ export default async function Page() {
               <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
               <p><button>Add to Cart</button></p>
             </div>
+            <div className="card">
+              <h1>Tailored Jeans 6</h1>
+              <p className="price">$19.99</p>
+              <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+              <p><button>Add to Cart</button></p>
+            </div>
+            <div className="card">
+              <h1>Tailored Jeans 7</h1>
+              <p className="price">$19.99</p>
+              <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+              <p><button>Add to Cart</button></p>
+            </div>
           </div>
         </div>
       </div>
 
-      <section>
-        <h1>Products New In</h1>
-        <div className="card">
-          <img src="images/IMG_6339.jpg" alt="Denim Jeans"></img>
-          <h1>Tailored Jeans 1</h1>
-          <p className="price">$19.99</p>
-          <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-          <p><button>Add to Cart</button></p>
-        </div>
-        <div className="card">
-          <img src="images/IMG_6339.jpg" alt="Denim Jeans"></img>
-          <h1>Tailored Jeans 1</h1>
-          <p className="price">$19.99</p>
-          <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-          <p><button>Add to Cart</button></p>
-        </div>
-        <div className="card">
-          <img src="images/IMG_6339.jpg" alt="Denim Jeans"></img>
-          <h1>Tailored Jeans 1</h1>
-          <p className="price">$19.99</p>
-          <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-          <p><button>Add to Cart</button></p>
-        </div>
-
-        <div className="row">
-          <div className="column3">
-            <div className="card">
-              <img src="images/IMG_6339.jpg" alt="Denim Jeans"></img>
-              <h1>Tailored Jeans 1</h1>
-              <p className="price">$19.99</p>
-              <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-              <p><button>Add to Cart</button></p>
-            </div>
-          </div>
-          <div className="column3">
-            <div className="card">
-              <img src="images/sticker-design-with-blue-t-shirt-isolated_1308-79625.jpg" alt="Denim Jeans"></img>
-              <h1>Tailored Jeans 2</h1>
-              <p className="price">$19.99</p>
-              <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-              <p><button>Add to Cart</button></p>
-            </div>
-          </div>
-          <div className="column3">
-            <div className="card">
-              <img src="images/sticker-design-with-blue-t-shirt-isolated_1308-79625.jpg" alt="Denim Jeans"></img>
-              <h1>Tailored Jeans 3</h1>
-              <p className="price">$19.99</p>
-              <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-              <p><button>Add to Cart</button></p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      
-      {/*<footer className="footer">
-        <ul>
-          <a className="text-footer">Copyright ©-All rights are reserved|</a>
-          <a>Social Media Here</a>
-          <a href="#" className="fa fa-facebook"></a>
-          <a href="#" className="fa fa-instagram"></a>
-        </ul>
-  </footer>*/}
     <Footer/>
 
     </body>

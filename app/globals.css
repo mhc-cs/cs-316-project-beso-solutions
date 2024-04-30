@@ -640,6 +640,13 @@ th, td {
 .product-bg{
   background-image: url(https://media.giphy.com/media/U3qYN8S0j3bpK/giphy.gif);
 }
+.aboutUs-bg{
+  background-image: url("images/aboutUs.jpg");
+  aspect-ratio: 16/9;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 .shipping-bg{
   background-image: url("images/shipping2.jpg");

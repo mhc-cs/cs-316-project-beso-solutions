@@ -8,26 +8,18 @@ import Select from 'react-select';
 import Topnav from "../components/Topnav";
 import Footer from "../components/Footer";
 
-function CartButton({}) {
-  return (
-    <button>
-      <img src="data:images/png-clipart-bird-logo-bird-animals-logo-thumbnail.jpeg"/>
-    </button>
-  );
-}
-
 export default function Page() {
 
   return (
   <div>
-    <body className="product-bg">
+    <body className="aboutUs-bg">
       <Topnav setActiveLink="about"/>
 
       <section>
-        <h1 style={{ color: 'white', paddingTop:'75px'}}>About Us</h1>
+        <h1 style={{ color: 'black', paddingTop:'75px'}}>About Us</h1>
         <div className="row">
           <div className="column2">
-            <p style={{ color: 'white' }}>MISSI is a premier US clothing brand dedicated to catering to petite women with 
+            <p style={{ color: 'black' }}>MISSI is a premier US clothing brand dedicated to catering to petite women with 
               heights ranging from 4’11 to 5’4. Specializing in various denim styles meticulously 
               crafted to perfectly complement petite frames, our garments are designed with 
               precision and passion. We take pride in sourcing high-quality materials and 
@@ -37,7 +29,7 @@ export default function Page() {
             </p>
           </div>
           <div className="column2">
-            <Image src="/images/Missi.jpg" alt="MISSI" width={500} height={500} />
+            <Image src="/images/Banner.jpg" alt="MISSI" width={500} height={500} />
           </div>
         </div>
       </section>
