@@ -92,12 +92,12 @@ export default function Page() {
                     <div className="col-25">
                         <div className="cart-container">
                             <h4>Cart <span className="price" style={{color:'black'}}> <b>4</b></span></h4>
-                            <p><a href="#">Product 1</a> <span className="price">$15</span></p>
-                            <p><a href="#">Product 2</a> <span className="price">$5</span></p>
-                            <p><a href="#">Product 3</a> <span className="price">$8</span></p>
-                            <p><a href="#">Product 4</a> <span className="price">$2</span></p>
+                            <p><a href="#">Tailored Jeans 1</a> <span className="price">$49.99</span></p>
+                            <p><a href="#">Tailored Jeans 2</a> <span className="price">$35.99</span></p>
+                            <p><a href="#">Tailored Shorts 1</a> <span className="price">$23.99</span></p>
+                            <p><a href="#">Tailored Shorts 2</a> <span className="price">$19.99</span></p>
                             <hr></hr>
-                            <p>Total <span className="price" style={{color:"black"}}><b>$30</b></span></p>
+                            <p>Total <span className="price" style={{color:"black"}}><b>$129.96</b></span></p>
                         </div>
                     </div>
                 </div>

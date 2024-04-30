@@ -79,6 +79,7 @@ export default function Page() {
   // Function to handle update button click
   const handleUpdateButtonClick = () => {
     getAllProducts(); // Fetch products based on selected criteria
+    <ProductList products={products}/>
   }
 
   return (
@@ -156,13 +157,15 @@ export default function Page() {
             </div>
           </div>
 
+          {/*
           <div className="main">
             <ProductList products={products}/>
+            {/*<ProductList products={handleUpdateButtonClick()}/>*
             <div className="cards">
               <div className="cards_inner">
                 {products.map(product => (
                   <div className="card" key={product["id"]}>
-                    {/*<img src={product.image} alt={product.name} />*/}
+                    {/*<img src={product.image} alt={product.name} />
                     <h1>{product["name"]}</h1>
                     <p className="price">${product["price"]}</p>
                     <p>{product["description"]}</p>
@@ -170,7 +173,56 @@ export default function Page() {
                 ))}
               </div>
             </div>
-          </div>
+          </div>*/}
+
+            <div className="main">
+              <div className="cards">
+                <div className="cards_inner">
+                  <div className="card">
+                    <h1>Tailored Jeans 1</h1>
+                    <p className="price">$49.99</p>
+                    <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+                    <p><button>Add to Cart</button></p>
+                  </div>
+                  <div className="card">
+                    <h1>Tailored Jeans 2</h1>
+                    <p className="price">$35.99</p>
+                    <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+                    <p><button>Add to Cart</button></p>
+                  </div>
+                  <div className="card">
+                    <h1>Tailored Shorts 1</h1>
+                    <p className="price">$23.99</p>
+                    <p>Some text about the shorts. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+                    <p><button>Add to Cart</button></p>
+                  </div>
+                  <div className="card">
+                    <h1>Tailored Shorts 2</h1>
+                    <p className="price">$19.99</p>
+                    <p>Some text about the shorts. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+                    <p><button>Add to Cart</button></p>
+                  </div>
+                  <div className="card">
+                    <h1>Tailored Jeans 3</h1>
+                    <p className="price">$59.99</p>
+                    <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+                    <p><button>Add to Cart</button></p>
+                  </div>
+                  <div className="card">
+                    <h1>Tailored Cargo Pants 1</h1>
+                    <p className="price">$32.99</p>
+                    <p>Some text about the cargo pants. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+                    <p><button>Add to Cart</button></p>
+                  </div>
+                  <div className="card">
+                    <h1>Tailored Cargo Pants 2</h1>
+                    <p className="price">$41.99</p>
+                    <p>Some text about the cargo pants. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+                    <p><button>Add to Cart</button></p>
+                  </div>
+                </div>
+              </div>
+            </div>
           
 
         </div>
