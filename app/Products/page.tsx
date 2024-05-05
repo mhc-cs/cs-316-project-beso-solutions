@@ -19,17 +19,12 @@ import test from "node:test";
 export default function Page() {
 
   const [products, getProducts] = useState([]);
-  const [testValue, setValue] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedSize, setSelectedSize] = useState("");
   const [selectedInseam, setSelectedInseam] = useState("");
   const [selectedColor, setSelectedColor] = useState("");
 
-    // Callback function to receive selected category from MenuCategory
-    const handleTestSelect = (e) => {
-        setValue(e.target.value);
-    }
-    // Callback function to receive selected category from MenuCategory
+  // Callback function to receive selected category from MenuCategory
     const handleCategorySelect = (e) => {
         setSelectedCategory(e.target.value);
     }
@@ -55,12 +50,6 @@ export default function Page() {
 
   const getAllProducts = () => {
     // Construct query parameters based on selected criteria
-    const queryParams = {
-      category: selectedCategory,
-      size: selectedSize,
-      inseam: selectedInseam,
-      color: selectedColor
-    };
     const paramsQ = new URLSearchParams();
     paramsQ.append('category',selectedCategory)
     paramsQ.append('size', selectedSize)
@@ -68,9 +57,7 @@ export default function Page() {
     paramsQ.append('color', selectedColor)
 
     axios.get(`${url}search`, { params: paramsQ })
-    .then((response) => {
-      //const allProducts = response.data.products.allProducts;
-      //setProducts(allProducts);
+    .then((response) => {;
       getProducts(response.data.products.allProducts)
     })
     .catch(error => console.error(`Error: ${error}`));
