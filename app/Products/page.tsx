@@ -18,7 +18,7 @@ import test from "node:test";
 
 export default function Page() {
 
-  const [products, getProducts] = useState([]);
+  const [products, setProducts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedSize, setSelectedSize] = useState("");
   const [selectedInseam, setSelectedInseam] = useState("");
@@ -48,19 +48,36 @@ export default function Page() {
     getAllProducts();
   }, [selectedCategory, selectedSize, selectedInseam, selectedColor]);
 
-  const getAllProducts = () => {
+  const getAllProducts = async () => {
     // Construct query parameters based on selected criteria
     const paramsQ = new URLSearchParams();
     paramsQ.append('category',selectedCategory)
     paramsQ.append('size', selectedSize)
     paramsQ.append('inseam', selectedInseam)
     paramsQ.append('color', selectedColor)
+    // try {
+    //     const { data } = await axios.get(`${url}search`, { params: paramsQ });
+    //     console.log("full");
+    //     console.log(data);
+    //     // console.log(data.JSON);
+    //     // console.log(data?.products);
+    //     setProducts(data);
+    //     console.log("updated");
+    //     console.log(products);
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+      axios.get(`${url}search`, { params: paramsQ })
+        .then((response) => {;
+            console.log("full");
+            // console.log(response);
+            // console.log(response.data);
+            setProducts(response.data)
+            console.log("updated");
+            console.log(products);
+        })
+        .catch(error => console.error(`Error: ${error}`));
 
-    axios.get(`${url}search`, { params: paramsQ })
-    .then((response) => {;
-      getProducts(response.data.products.allProducts)
-    })
-    .catch(error => console.error(`Error: ${error}`));
   }
 
   // Function to handle update button click
@@ -123,96 +140,79 @@ export default function Page() {
               {/*<p>{`You selected ${selectedInseam}`}</p>*/}
               <button onClick={handleUpdateButtonClick}>Search</button>
 
-              {/* <div className="app">
-
-                {/* Pass handle__Select as a prop to Menu-- */}
-                {/*<MenuCategory onSelect={handleCategorySelect}/>
-                <p>{`You selected ${selectedCategory}`}</p>
-                <MenuSize onSelect={handleSizeSelect}/>
-                <p>{`You selected ${selectedSize}`}</p>
-                <MenuInseam onSelect={handleInseamSelect}/>
-                <p>{`You selected ${selectedInseam}`}</p>
-                <MenuColor onSelect={handleColorSelect}/>
-                <p>{`You selected ${selectedColor}`}</p>
-
-                <a></a>
-
-                {/* Button to update products */}
-                {/*<button onClick={handleUpdateButtonClick}>Update Products</button>
-              </div>*/}
               <a></a>
             </div>
           </div>
-
-          {/*
-          <div className="main">
-            <ProductList products={products}/>
-            {/*<ProductList products={handleUpdateButtonClick()}/>*
-            <div className="cards">
-              <div className="cards_inner">
-                {products.map(product => (
-                  <div className="card" key={product["id"]}>
-                    {/*<img src={product.image} alt={product.name} />
-                    <h1>{product["name"]}</h1>
-                    <p className="price">${product["price"]}</p>
-                    <p>{product["description"]}</p>
-                  </div>
-                ))}
+          </div>
+          <div className="container mt-3 category">
+  <h4 className="text-center">Products</h4>
+  <h6 className="text-center">{products?.length} No Products Found </h6>
+  <div className="row">
+    <div className="col-md-9 offset-1">
+      <div className="d-flex flex-wrap">
+        {products?.map((p) => (
+          <div className="card m-2" key={p._id}>
+            <img
+              src={`/api/v1/product/product-photo/${p._id}`}
+              className="card-img-top"
+              alt={p.name}
+            />
+            <div className="card-body">
+              <div className="card-name-price">
+                <h5 className="card-title">{p.name}</h5>
+                <h5 className="card-title card-price">
+                  {/* {p.price.toLocaleString("en-US", {
+                    style: "currency",
+                    currency: "USD",
+                  })} */}
+                </h5>
+              </div>
+              <p className="card-text ">
+                {p.description.substring(0, 60)}...
+              </p>
+              <div className="card-name-price">
+                <button
+                  className="btn btn-info ms-1"
+                //   onClick={() => navigate(`/product/${p.slug}`)}
+                >
+                  More Details
+                </button>
+                {/* <button
+              className="btn btn-dark ms-1"
+              onClick={() => {
+                setCart([...cart, p]);
+                localStorage.setItem(
+                  "cart",
+                  JSON.stringify([...cart, p])
+                );
+                toast.success("Item Added to cart");
+              }}
+            >
+              ADD TO CART
+            </button> */}
               </div>
             </div>
-          </div>*/}
+          </div>
+        ))}
+      </div>
+      {/* <div className="m-2 p-3">
+      {products && products.length < total && (
+        <button
+          className="btn btn-warning"
+          onClick={(e) => {
+            e.preventDefault();
+            setPage(page + 1);
+          }}
+        >
+          {loading ? "Loading ..." : "Loadmore"}
+        </button>
+      )}
+    </div> */}
+    </div>
+  </div>
+</div>
 
-            <div className="main">
-              <div className="cards">
-                <div className="cards_inner">
-                  <div className="card">
-                    <h1>Tailored Jeans 1</h1>
-                    <p className="price">$49.99</p>
-                    <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-                    <p><button>Add to Cart</button></p>
-                  </div>
-                  <div className="card">
-                    <h1>Tailored Jeans 2</h1>
-                    <p className="price">$35.99</p>
-                    <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-                    <p><button>Add to Cart</button></p>
-                  </div>
-                  <div className="card">
-                    <h1>Tailored Shorts 1</h1>
-                    <p className="price">$23.99</p>
-                    <p>Some text about the shorts. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-                    <p><button>Add to Cart</button></p>
-                  </div>
-                  <div className="card">
-                    <h1>Tailored Shorts 2</h1>
-                    <p className="price">$19.99</p>
-                    <p>Some text about the shorts. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-                    <p><button>Add to Cart</button></p>
-                  </div>
-                  <div className="card">
-                    <h1>Tailored Jeans 3</h1>
-                    <p className="price">$59.99</p>
-                    <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-                    <p><button>Add to Cart</button></p>
-                  </div>
-                  <div className="card">
-                    <h1>Tailored Cargo Pants 1</h1>
-                    <p className="price">$32.99</p>
-                    <p>Some text about the cargo pants. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-                    <p><button>Add to Cart</button></p>
-                  </div>
-                  <div className="card">
-                    <h1>Tailored Cargo Pants 2</h1>
-                    <p className="price">$41.99</p>
-                    <p>Some text about the cargo pants. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-                    <p><button>Add to Cart</button></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          
-
-        </div>
+        
         <div></div>
       </section>
       
@@ -221,5 +221,8 @@ export default function Page() {
     </body>
 
   </div>
+
+
+
   );
 }
