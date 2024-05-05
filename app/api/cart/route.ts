@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-import {CartModel} from '../db';
+import CartModel from '../..//models/cartModel.js';
 
 export async function POST(req: Request) {
     const data = await req.json();

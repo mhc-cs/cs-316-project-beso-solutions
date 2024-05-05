@@ -1,5 +1,6 @@
+mongoose.connect('mongodb://localhost:27017/maindb', { useNewUrlParser: true});
 const mongoose = require('mongoose');
-import {ProductModel} from '../db';
+import ProductModel from '../../models/productModel.js';
 
 export async function POST(req: Request) {
     const data = await req.json();
