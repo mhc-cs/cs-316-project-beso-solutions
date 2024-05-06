@@ -77,35 +77,6 @@ const CartSchema = new Schema({
             }]
 });
 
-// export const ImageModel = mongoose.model ('images', ImageSchema);
-
-// export const ProductModel = mongoose.model ('ProductModel', ProductSchema);
-
-// export const CartModel = mongoose.model ('cart', CartSchema);
-
-// // Make the model and schema available
-// module.exports = mongoose.models.images || mongoose.model ('images', ImageSchema);
-// module.exports = mongoose.models.products || mongoose.model('ProductModel', ProductSchema);
-// module.exports = mongoose.models.cart || mongoose.model ('CartModel', CartSchema);
-
 
 export const ProductModel = mongoose.models.ProductModel || mongoose.model('ProductModel', ProductSchema);
 export const CartModel = mongoose.models.CartModel || mongoose.model ('CartModel', CartSchema);
-
-
-// const getModel = () => mongoose.model ('ProductModel', ProductSchema); 
-// module.exports = (mongoose.models.products || getModel()) as ReturnType<typeof getModel>; 
-
-
-// const gtModel = () => mongoose.model ('cart', CartSchema);
-// module.exports = (mongoose.models.cart || gtModel()) as ReturnType<typeof gtModel>; 
-
-// const getModel = () => model("User", UserSchema); 
-// module.exports = (models.User || getModel()) as ReturnType<typeof getModel>;
-
-// if (!mongoose.models["products"]) {
-//     return mongoose.model(products, ProductSchema);
-//   }
-//   else {
-//     return mongoose.models[entityDBName];
-//   }

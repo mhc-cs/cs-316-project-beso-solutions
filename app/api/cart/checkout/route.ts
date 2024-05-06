@@ -39,6 +39,8 @@ export async function POST(request: Request) {
 
         //TODO: checkout?
         
-    // return NextResponse.json(results || {});
+        return new Response('Checkedout!', {
+            status: 200,
+            })
 
 }

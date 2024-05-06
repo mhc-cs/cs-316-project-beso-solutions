@@ -55,23 +55,9 @@ export default function Page() {
     paramsQ.append('size', selectedSize)
     paramsQ.append('inseam', selectedInseam)
     paramsQ.append('color', selectedColor)
-    // try {
-    //     const { data } = await axios.get(`${url}search`, { params: paramsQ });
-    //     console.log("full");
-    //     console.log(data);
-    //     // console.log(data.JSON);
-    //     // console.log(data?.products);
-    //     setProducts(data);
-    //     console.log("updated");
-    //     console.log(products);
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
       axios.get(`${url}search`, { params: paramsQ })
         .then((response) => {;
             console.log("full");
-            // console.log(response);
-            // console.log(response.data);
             setProducts(response.data)
             console.log("updated");
             console.log(products);
@@ -79,6 +65,22 @@ export default function Page() {
         .catch(error => console.error(`Error: ${error}`));
 
   }
+
+const addToCart = async(p) => {
+    console.log("TESTING")
+    console.log(p)
+      
+        await axios.post('http://cs-vm-06.cs.mtholyoke.edu:31600/api/cart', {
+            userID: "currUser",
+            itemName: p.name,
+            itemColor: p.colors[0].color,
+            itemSize: p.colors[0].sizes[0].size,
+            itemInseam: p.colors[0].sizes[0].inseams[0].inseam,
+            itemQuantity: 1,
+            itemPrice: p.colors[0].sizes[0].inseams[0].prize
+        })
+    
+      }
 
   // Function to handle update button click
   const handleUpdateButtonClick = () => {
@@ -145,8 +147,9 @@ export default function Page() {
           </div>
           </div>
           <div className="container mt-3 category">
+ 
   <h4 className="text-center">Products</h4>
-  <h6 className="text-center">{products?.length} No Products Found </h6>
+  <h6 className="text-center">{products?.length} Products Found </h6>
   <div className="row">
     <div className="col-md-9 offset-1">
       <div className="d-flex flex-wrap">
@@ -161,16 +164,18 @@ export default function Page() {
               <div className="card-name-price">
                 <h5 className="card-title">{p.name}</h5>
                 <h5 className="card-title card-price">
-                  {/* {p.price.toLocaleString("en-US", {
+                  {p.colors[0].sizes[0].inseams[0].price.toLocaleString("en-US", {
                     style: "currency",
                     currency: "USD",
-                  })} */}
+                  })}
                 </h5>
               </div>
               <p className="card-text ">
                 {p.description.substring(0, 60)}...
               </p>
               <div className="card-name-price">
+              {/* <button >More Details</button>
+                <button >ADD TO CART</button> */}
                 <button
                   className="btn btn-info ms-1"
                 //   onClick={() => navigate(`/product/${p.slug}`)}
@@ -179,35 +184,17 @@ export default function Page() {
                 </button>
                 {/* <button
               className="btn btn-dark ms-1"
-              onClick={() => {
-                setCart([...cart, p]);
-                localStorage.setItem(
-                  "cart",
-                  JSON.stringify([...cart, p])
-                );
-                toast.success("Item Added to cart");
-              }}
+              onClick={addToCart(p)}
             >
-              ADD TO CART
+                
+              ADD 2 CART
             </button> */}
+            <button onClick={() => addToCart(p)}>ADD TO CART</button>
               </div>
             </div>
           </div>
         ))}
       </div>
-      {/* <div className="m-2 p-3">
-      {products && products.length < total && (
-        <button
-          className="btn btn-warning"
-          onClick={(e) => {
-            e.preventDefault();
-            setPage(page + 1);
-          }}
-        >
-          {loading ? "Loading ..." : "Loadmore"}
-        </button>
-      )}
-    </div> */}
     </div>
   </div>
 </div>

@@ -42,16 +42,16 @@ export default function Page() {
         stock: stock,
     })
     .then(() => {
-      // Reset form fields
-      setName("");
-      setDescription("");
-      setCategory("");
-      setMaterial("");
-      setColor("");
-      setSize("");
-      setInseam("");
-      setPrice("");
-      setStock("");
+    //   // Reset form fields
+    //   setName("");
+    //   setDescription("");
+    //   setCategory("");
+    //   setMaterial("");
+    //   setColor("");
+    //   setSize("");
+    //   setInseam("");
+    //   setPrice("");
+    //   setStock("");
     })
 
   }

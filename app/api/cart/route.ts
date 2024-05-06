@@ -1,12 +1,15 @@
 const mongoose = require('mongoose');
-import CartModel from '../..//models/cartModel.js';
+import {CartModel} from '../db';
 
 export async function POST(req: Request) {
     const data = await req.json();
-    const exists = await ProductModel.find(
+    console.log("IN CART")
+    console.log(data)
+    const exists = await CartModel.find(
         {userID: data.userID}
     );
     if (exists.length == 0){ //brand new cart
+        console.log("NEW CART")
         const doc = new CartModel(    {
             _id: new mongoose.Types.ObjectId(),
             userID: data.userID,
@@ -25,6 +28,7 @@ export async function POST(req: Request) {
         try{
             await doc.save();
         }catch (error) {
+            console.log(error)
             return new Response(`Webhook error: ${error.message}`, {
                 status: 400,
             })
@@ -35,15 +39,19 @@ export async function POST(req: Request) {
             status: 200,
             })
     }else{ //update cart
+        console.log("UPDATE CART")
         const updateStatus = await CartModel.updateOne(
-            {"userID": data.name, 
+            {"userID": data.userID, 
             "items.name": data.itemName,
             "items.color": data.itemColor,
             "items.size": data.itemSize,
             "items.inseam": data.itemInseam},
-            { $inc: { "items.quantity": data.quantity} })
+            { $inc: { "items.$.quantity": data.itemQuantity} })
+        console.log(updateStatus)
+        console.log(updateStatus.modifiedCount)
     
         if(updateStatus.modifiedCount == 0){ //no exisiting version of this product in cart
+            console.log("NEW PRODUCT")
             await CartModel.updateOne(
                 {"userID": data.userID},
                 { "$push": 
@@ -59,5 +67,9 @@ export async function POST(req: Request) {
                     }
                 })
             }
+            console.log("HAPPY")
+            return new Response('Success!', {
+                status: 200,
+                })
     }
   }
