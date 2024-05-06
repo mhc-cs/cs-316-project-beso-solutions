@@ -57,12 +57,35 @@ export default function Page() {
       };
 
     const checkOut = async() => {
-        console.log("ITEMS")
             await axios.post('http://cs-vm-06.cs.mtholyoke.edu:31600/api/cart/checkout', {
                 userID: "currUser",
             }).then((response) => {;
                 console.log(response);
             })
+    }
+
+    const removeCartItem = async(p) => {
+        console.log("Remove Items")
+        console.log(p)
+        await axios.post('http://cs-vm-06.cs.mtholyoke.edu:31600/api/cart/remove', {
+            userID: "currUser",
+            itemId: p._id,
+            itemName: p.name,
+            itemColor: p.color,
+            itemSize: p.size,
+            itemInseam: p.inseam
+        }).then((response) => {;
+            console.log(response);
+        })
+    }
+
+    const deleteCart = async(id) => {
+        console.log("Remove cart")
+        await axios.post('http://cs-vm-06.cs.mtholyoke.edu:31600/api/cart/delete', {
+            userID: "currUser",
+        }).then((response) => {;
+            console.log(response);
+        })
     }
 
     return (
@@ -146,6 +169,14 @@ export default function Page() {
                                     <p>{item.name}</p>
                                     <p>Price : {item.price}</p>
                                 </div>
+                                    <div className="col-md-4 cart-remove-btn">
+                                    <button
+                                    className="btn btn-danger"
+                                    onClick={() => removeCartItem(item)}
+                                    >
+                                    Remove
+                                    </button>
+                                </div>
                                 </div>
                             ))    
                         ))}
@@ -154,8 +185,14 @@ export default function Page() {
                             <hr></hr>
                             <p>Total <span className="price" style={{color:"black"}}><b>{totalPrice()}</b></span></p>
                         </div>
+                        <button
+                                    className="btn btn-danger"
+                                    onClick={() => deleteCart(p._id)}
+                                    >
+                                    Delete Cart
+                                    </button>
                     </div>
-                </div>
+                    </div>
             </body>
         </div>
     );
