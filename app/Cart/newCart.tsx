@@ -9,6 +9,7 @@ import "../styles/CartStyles.css";
 
 const CartPage = () => {
   const [cart, setCart] = useCart();
+  const navigate = useNavigate();
 
   //total price
   const totalPrice = () => {

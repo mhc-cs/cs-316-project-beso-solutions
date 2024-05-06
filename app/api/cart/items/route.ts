@@ -9,9 +9,9 @@ export async function GET(request: Request) {
     const url = new URL(request.url);
     const searchParams = new URLSearchParams(url.search);
     try{
-        const cart = await CartModel.findOne(
+        const cart = await CartModel.find(
             {userID: searchParams.get('userID')},
-            {_id:0, items:1}
+            {_id:1, items:1}
         );
         return NextResponse.json(cart);
     }catch (error) {
