@@ -187,7 +187,7 @@ export default function Page() {
                         </div>
                         <button
                                     className="btn btn-danger"
-                                    onClick={() => deleteCart(p._id)}
+                                    onClick={() => deleteCart("currUser")}
                                     >
                                     Delete Cart
                                     </button>
