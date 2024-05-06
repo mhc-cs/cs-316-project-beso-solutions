@@ -32,11 +32,14 @@ const ProductList: React.FC<ProductListProps> = ({ products }) => {
         <div className="product-list">
             <p>hellohelloheloo</p>
             {products.map(product => (
+                <p>{product.name}</p>
+            ))} 
+            {products.map(product => (
                 <div className="product" key={product.id}>
-                <h3>{product.name}</h3>
-                <p>Price: ${product.price}</p>
-                <p>Description: {product.description}</p>
-                {/* Render other product details here if needed */}
+                    <h3>{product.name}</h3>
+                    <p>Price: ${product.price}</p>
+                    <p>Description: {product.description}</p>
+                    {/* Render other product details here if needed */}
                 </div>
             ))} 
         </div>
