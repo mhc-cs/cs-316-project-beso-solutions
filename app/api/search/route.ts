@@ -1,6 +1,5 @@
 import {NextResponse} from 'next/server';
-import ProductModel from '../../models/productModel.js';
-mongoose.connect('mongodb://localhost:27017/maindb', { useNewUrlParser: true});
+import {ProductModel} from '../db';
 
 // Gets all language data from the DB
 export async function GET(request: Request) {

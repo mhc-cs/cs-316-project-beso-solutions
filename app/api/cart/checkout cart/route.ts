@@ -1,6 +1,7 @@
 import {NextResponse} from 'next/server';
-import CartModel from '../../../models/cartModel.js';
-import ProductModel from '../../../models/productModel.js';
+import {CartModel} from '../../db';
+import {ProductModel} from '../../db';
+
 
 
 export async function POST(request: Request) {
