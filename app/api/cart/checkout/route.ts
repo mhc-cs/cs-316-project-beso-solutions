@@ -3,6 +3,7 @@ import {CartModel} from '../../db';
 import {ProductModel} from '../../db';
 
 
+
 export async function POST(request: Request) {
     const data = await request.json();
 
@@ -38,6 +39,8 @@ export async function POST(request: Request) {
 
         //TODO: checkout?
         
-    // return NextResponse.json(results || {});
+        return new Response('Checkedout!', {
+            status: 200,
+            })
 
 }

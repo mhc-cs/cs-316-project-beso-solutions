@@ -5,9 +5,19 @@ mongoose.Promise = global.Promise;
 
 // mongoose.connect('mongodb://localhost:27017/maindb', { useNewUrlParser: true});
 
-mongoose.connect('mongodb://localhost:27017/maindb', { useNewUrlParser: true});
+const connectDB = async () => {
+    try {
+      // const conn = await mongoose.connect(process.env.MONGO_URL);
+      const conn = await mongoose.connect('mongodb://localhost:27017/maindb', { useNewUrlParser: true});
+      console.log(
+        `Conneted To Mongodb Databse ${conn.connection.host}`
+      );
+    } catch (error) {
+      console.log(`Errro in Mongodb ${error}`);
+    }
+  };
 
-
+connectDB()
 // const productCategories = ['shirt', 't-shirt', 'shorts', 'jeans']
 const orderStatuses = ['not started','ordered', 'shipped', 'delivered', 'failed']
 const paymentStatuses = ['not started', 'started','processed', 'failed']
@@ -67,14 +77,6 @@ const CartSchema = new Schema({
             }]
 });
 
-export const ImageModel = mongoose.model ('images', ImageSchema);
 
-export const ProductModel = mongoose.model ('products', ProductSchema);
-
-export const CartModel = mongoose.model ('cart', CartSchema);
-
-// Make the model and schema available
-// module.exports = mongoose.models.Images || mongoose.model ('Images', ImageSchema);
-// module.exports = mongoose.models.ProductModel || mongoose.model('ProductModel', ProductSchema);
-// module.exports = mongoose.models.Cart || mongoose.model ('Cart', CartSchema);
-
+export const ProductModel = mongoose.models.ProductModel || mongoose.model('ProductModel', ProductSchema);
+export const CartModel = mongoose.models.CartModel || mongoose.model ('CartModel', CartSchema);

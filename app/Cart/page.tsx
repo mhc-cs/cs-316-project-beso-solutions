@@ -14,11 +14,56 @@ import Select from 'react-select';
 import ProductList from '../components/ProductList';
 import Footer from "../components/Footer";
 import Topnav from "../components/Topnav";
-import test from "node:test";
+
+
 
 <link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.min.css"/>
 
 export default function Page() {
+    const [cartItems, setCartItems] = useState([]);
+
+    useEffect(() => {
+        getCartItems();
+      });
+
+    const getCartItems = async() => {
+        console.log("ITEMS")
+            const paramsQ = new URLSearchParams();
+            paramsQ.append('userID',"currUser")
+            await axios.get('http://cs-vm-06.cs.mtholyoke.edu:31600/api/cart/items', { params: paramsQ })
+            .then((response) => {;
+                // console.log(response.data);
+                setCartItems(response.data)
+                console.log(cartItems)
+            })
+            
+    }
+
+    const totalPrice = () => {
+        try {
+          let total = 0;
+          cartItems?.map((p) => {
+                p.items.map((item) => {
+            total = total + item.price;
+                })
+          });
+          return total.toLocaleString("en-US", {
+            style: "currency",
+            currency: "USD",
+          });
+        } catch (error) {
+          console.log(error);
+        }
+      };
+
+    const checkOut = async() => {
+        console.log("ITEMS")
+            await axios.post('http://cs-vm-06.cs.mtholyoke.edu:31600/api/cart/checkout', {
+                userID: "currUser",
+            }).then((response) => {;
+                console.log(response);
+            })
+    }
 
     return (
         <div>
@@ -91,13 +136,23 @@ export default function Page() {
                     </div>
                     <div className="col-25">
                         <div className="cart-container">
-                            <h4>Cart <span className="price" style={{color:'black'}}> <b>4</b></span></h4>
-                            <p><a href="#">Tailored Jeans 1</a> <span className="price">$49.99</span></p>
-                            <p><a href="#">Tailored Jeans 2</a> <span className="price">$35.99</span></p>
-                            <p><a href="#">Tailored Shorts 1</a> <span className="price">$23.99</span></p>
-                            <p><a href="#">Tailored Shorts 2</a> <span className="price">$19.99</span></p>
+                            <h4>Cart <span className="price" style={{color:'black'}}> <b>{cartItems?.length}</b></span></h4>
+                            
+                            <div className="col-md-7  p-0 m-0">
+                            {cartItems?.map((p) => (
+                                p.items.map((item) => (
+                                    <div className="row card flex-row" key={item._id}>
+                                <div className="col-md-4">
+                                    <p>{item.name}</p>
+                                    <p>Price : {item.price}</p>
+                                </div>
+                                </div>
+                            ))    
+                        ))}
+                            </div>
+                            
                             <hr></hr>
-                            <p>Total <span className="price" style={{color:"black"}}><b>$129.96</b></span></p>
+                            <p>Total <span className="price" style={{color:"black"}}><b>{totalPrice()}</b></span></p>
                         </div>
                     </div>
                 </div>
