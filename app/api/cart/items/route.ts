@@ -5,7 +5,6 @@ import {ProductModel} from '../../db';
 
 
 export async function GET(request: Request) {
-    console.log("ITEMS SEARCH")
     const url = new URL(request.url);
     const searchParams = new URLSearchParams(url.search);
     try{
