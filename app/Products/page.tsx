@@ -15,9 +15,14 @@ import ProductList from '../components/ProductList';
 import Footer from "../components/Footer";
 import Topnav from "../components/TopnavProduct";
 import test from "node:test";
+import { useDispatch } from 'react-redux';
+import { addToCart } from  "../api/cart/cartActions";
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 
-export default function Page() {
-
+const Page() {
+  const dispatch = useDispatch();
+  
   const [products, setProducts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedSize, setSelectedSize] = useState("");
@@ -66,21 +71,9 @@ export default function Page() {
 
   }
 
-const addToCart = async(p) => {
-    console.log("TESTING")
-    console.log(p)
-      
-        await axios.post('http://cs-vm-06.cs.mtholyoke.edu:31600/api/cart', {
-            userID: "currUser",
-            itemName: p.name,
-            itemColor: p.colors[0].color,
-            itemSize: p.colors[0].sizes[0].size,
-            itemInseam: p.colors[0].sizes[0].inseams[0].inseam,
-            itemQuantity: 1,
-            itemPrice: p.colors[0].sizes[0].inseams[0].prize
-        })
-    
-      }
+    const handleAddToCart = (product) => {
+        dispatch(addToCart(product));
+    };
 
   // Function to handle update button click
   const handleUpdateButtonClick = () => {
@@ -182,14 +175,12 @@ const addToCart = async(p) => {
                 >
                   More Details
                 </button>
-                {/* <button
-              className="btn btn-dark ms-1"
-              onClick={addToCart(p)}
-            >
-                
-              ADD 2 CART
-            </button> */}
-            <button onClick={() => addToCart(p)}>ADD TO CART</button>
+                <button
+                  className="btn btn-dark ms-1"
+                  onClick={() => handleAddToCart(p)}
+                >
+                  ADD TO CART
+                </button>
               </div>
             </div>
           </div>

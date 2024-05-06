@@ -14,39 +14,46 @@ import Select from 'react-select';
 import ProductList from '../components/ProductList';
 import Footer from "../components/Footer";
 import Topnav from "../components/Topnav";
+import { useCart } from "../api/cart/cart";
+import { useNavigate } from "react-router-dom";
+import DropIn from "braintree-web-drop-in-react";
+import { AiFillWarning } from "react-icons/ai";
+import toast from "react-hot-toast";
 
 
 
 <link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.min.css"/>
 
 export default function Page() {
-    const [cartItems, setCartItems] = useState([]);
+    const [cart, setCart] = useCart();
 
-    useEffect(() => {
-        getCartItems();
-      });
-
-    const getCartItems = async() => {
-        console.log("ITEMS")
-            const paramsQ = new URLSearchParams();
-            paramsQ.append('userID',"currUser")
-            await axios.get('http://cs-vm-06.cs.mtholyoke.edu:31600/api/cart/items', { params: paramsQ })
-            .then((response) => {;
-                console.log(response.data);
-                setCartItems(response.data)
-                console.log(cartItems)
-            })
-            
-    }
-
-    const checkOut = async() => {
-        console.log("ITEMS")
-            await axios.post('http://cs-vm-06.cs.mtholyoke.edu:31600/api/cart/checkout', {
-                userID: "currUser",
-            }).then((response) => {;
-                console.log(response);
-            })
-    }
+    //total price
+    const totalPrice = () => {
+      try {
+        let total = 0;
+        cart?.map((item) => {
+          total = total + item.price;
+        });
+        return total.toLocaleString("en-US", {
+          style: "currency",
+          currency: "USD",
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    //detele item
+    const removeCartItem = (pid) => {
+      try {
+        let myCart = [...cart];
+        let index = myCart.findIndex((item) => item._id === pid);
+        myCart.splice(index, 1);
+        setCart(myCart);
+        localStorage.setItem("cart", JSON.stringify(myCart));
+      } catch (error) {
+        console.log(error);
+      }
+    };
 
     return (
         <div>
@@ -118,18 +125,35 @@ export default function Page() {
                         </div>
                     </div>
                     <div className="col-25">
-                        <div className="cart-container">
-                            <h4>Cart <span className="price" style={{color:'black'}}> <b>{cartItems?.length}</b></span></h4>
-                            
-                            {cartItems?.map((p) => (
-                            <div className="card m-2" key={p._id}>
-                            <p><a href="#">p.name</a> <span className="price">p.price</span></p>
-                            </div>
-                            ))}
-                            
-                            <hr></hr>
-                            <p>Total <span className="price" style={{color:"black"}}><b>$129.96</b></span></p>
+                            {cart?.map((p) => (
+                                <div className="row card flex-row" key={p._id}>
+                                <div className="col-md-4">
+                                    <p>{p.name}</p>
+                                    <p>Price : {p.price}</p>
+                                </div>
+                                <div className="col-md-4 cart-remove-btn">
+                                    <button
+                                    className="btn btn-danger"
+                                    onClick={() => removeCartItem(p._id)}
+                                    >
+                                    Remove
+                                    </button>
+                                </div>
                         </div>
+                    ))}
+                    </div>
+            <div className="col-md-5 cart-summary ">
+              <h2>Cart Summary</h2>
+              <p>Total | Checkout | Payment</p>
+              <hr />
+              <h4>Total : {totalPrice()} </h4>
+              <button
+                      className="btn btn-danger"
+                    >
+                      Checkout
+                    </button>
+             
+                    
                     </div>
                 </div>
             </body>
